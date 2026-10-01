@@ -1,0 +1,262 @@
+/* =========================
+   RESET BÁSICO
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 30%),
+        linear-gradient(180deg, #08111f 0%, #0f172a 100%);
+    color: #f8fafc;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   CABECERA
+========================= */
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(8, 17, 31, 0.72);
+    backdrop-filter: blur(14px);
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+nav {
+    width: min(1200px, 88%);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 80px;
+}
+
+.logo {
+    color: white;
+    text-decoration: none;
+
+    font-size: 1.3rem;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+}
+
+.nav-links a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-size: 0.95rem;
+
+    transition: color 0.25s ease;
+}
+
+.nav-links a:hover {
+    color: #38bdf8;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    width: min(1200px, 88%);
+    margin: 0 auto;
+
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-top: 100px;
+}
+
+.hero-label {
+    color: #38bdf8;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 24px;
+}
+
+.hero h1 {
+    font-size: clamp(4rem, 9vw, 7.5rem);
+    line-height: 0.9;
+
+    letter-spacing: -5px;
+
+    max-width: 850px;
+
+    margin-bottom: 32px;
+
+    background: linear-gradient(
+        90deg,
+        #ffffff,
+        #dbeafe,
+        #7dd3fc
+    );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero-description {
+    max-width: 650px;
+
+    color: #94a3b8;
+
+    font-size: 1.25rem;
+    line-height: 1.7;
+
+    margin-bottom: 8px;
+}
+
+
+/* =========================
+   BOTONES
+========================= */
+
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+
+    margin-top: 34px;
+}
+
+.hero-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 150px;
+
+    padding: 14px 22px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+    font-weight: 700;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.hero-buttons a:first-child {
+    background: #38bdf8;
+    color: #07111f;
+
+    border: 1px solid #38bdf8;
+}
+
+.hero-buttons a:first-child:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.hero-buttons a:last-child {
+    background: transparent;
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.hero-buttons a:last-child:hover {
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   EFECTO DECORATIVO
+========================= */
+
+.hero::after {
+    content: "";
+
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    right: 8%;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: radial-gradient(
+        circle,
+        rgba(56, 189, 248, 0.16),
+        transparent 65%
+    );
+
+    filter: blur(10px);
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+        min-height: 70px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        width: 90%;
+        padding-top: 90px;
+    }
+
+    .hero h1 {
+        font-size: clamp(3.4rem, 16vw, 5rem);
+        letter-spacing: -3px;
+    }
+
+    .hero-description {
+        font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .hero-buttons a {
+        width: 100%;
+    }
+}

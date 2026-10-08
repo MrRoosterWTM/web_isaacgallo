@@ -178,10 +178,6 @@ nav {
    HERO
 ========================= */
 
-/* =========================
-   HERO
-========================= */
-
 .hero {
     position: relative;
 
@@ -213,7 +209,7 @@ nav {
             rgba(255, 255, 255, 0.18) 78%,
             rgba(255, 255, 255, 0.06) 100%
         ),
-        url("../assets/images/hero-home.png");
+        url("../assets/images/hero-home.webp");
 
     background-size: cover;
     background-position: center center;

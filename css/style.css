@@ -106,16 +106,21 @@ nav {
    LOGO TEMPORAL EN TEXTO
 ========================= */
 
+/* =========================
+   LOGO
+========================= */
+
 .logo {
-    color: var(--text);
-
+    display: flex;
+    align-items: center;
     text-decoration: none;
+}
 
-    font-size: 1.45rem;
-
-    font-weight: 750;
-
-    letter-spacing: -1px;
+.logo img {
+    height: 52px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 

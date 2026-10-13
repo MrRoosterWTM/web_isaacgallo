@@ -670,6 +670,130 @@ nav {
     transform: scale(1.03);
 }
 
+/* =====================================================
+   PHILOSOPHY
+===================================================== */
+
+.philosophy {
+    width: 100%;
+
+    padding: 140px 0;
+
+    background: var(--white);
+}
+
+.philosophy-container {
+    width: min(var(--container), 88%);
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1.1fr);
+
+    gap: 100px;
+
+    align-items: start;
+}
+
+
+/* =========================
+   PHILOSOPHY HEADING
+========================= */
+
+.philosophy-heading h2 {
+    max-width: 520px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(3rem, 5vw, 5rem);
+
+    line-height: 0.98;
+
+    letter-spacing: -4px;
+}
+
+
+/* =========================
+   PHILOSOPHY CONTENT
+========================= */
+
+.philosophy-content {
+    max-width: 620px;
+
+    padding-top: 42px;
+}
+
+.philosophy-lead {
+    margin-bottom: 28px;
+
+    color: var(--text);
+
+    font-size: 1.65rem;
+
+    font-weight: 650;
+
+    line-height: 1.35;
+
+    letter-spacing: -1px;
+}
+
+.philosophy-content > p:not(.philosophy-lead) {
+    margin-bottom: 22px;
+
+    color: var(--text-soft);
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   PROCESS
+========================= */
+
+.philosophy-process {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+
+    margin-top: 50px;
+}
+
+.process-item {
+    padding-top: 18px;
+
+    border-top: 2px solid var(--border);
+}
+
+.process-item span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: var(--blue);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+}
+
+.process-item strong {
+    color: var(--text);
+
+    font-size: 0.95rem;
+
+    font-weight: 650;
+}
 
 /* =====================================================
    RESPONSIVE — TABLET
@@ -868,6 +992,38 @@ nav {
         gap: 35px;
 
         margin-top: 40px;
+    }
+        .philosophy {
+    padding: 90px 0;
+    }
+
+    .philosophy-container {
+    width: 90%;
+
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+    }
+
+    .philosophy-heading h2 {
+    font-size: 3rem;
+
+    letter-spacing: -3px;
+    }
+
+    .philosophy-content {
+    padding-top: 0;
+    }
+
+    .philosophy-lead {
+    font-size: 1.4rem;
+    }
+
+    .philosophy-process {
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 25px 15px;
     }
 
 }

@@ -444,6 +444,150 @@ nav {
     color: white;
 }
 
+/* =========================
+   SERVICES
+========================= */
+
+.services {
+    width: min(var(--container), 88%);
+    margin: 0 auto;
+
+    padding: 120px 0;
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-header {
+    max-width: 780px;
+
+    margin-bottom: 70px;
+}
+
+.section-label {
+    color: var(--blue);
+
+    font-size: 0.8rem;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 22px;
+}
+
+.section-header h2 {
+    color: var(--text);
+
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+
+    line-height: 1;
+
+    letter-spacing: -3px;
+
+    margin-bottom: 28px;
+}
+
+.section-description {
+    max-width: 650px;
+
+    color: var(--text-soft);
+
+    font-size: 1.15rem;
+
+    line-height: 1.7;
+}
+
+
+/* =========================
+   SERVICES GRID
+========================= */
+
+.services-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+
+/* =========================
+   SERVICE CARD
+========================= */
+
+.service-card {
+    position: relative;
+
+    min-height: 300px;
+
+    padding: 38px;
+
+    background: #FAFAFA;
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(61, 183, 255, 0.45);
+
+    box-shadow:
+        0 20px 45px rgba(20, 30, 45, 0.08);
+}
+
+
+/* número */
+
+.service-number {
+    display: block;
+
+    margin-bottom: 55px;
+
+    color: var(--blue);
+
+    font-size: 0.8rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+/* título */
+
+.service-card h3 {
+    margin-bottom: 16px;
+
+    color: var(--text);
+
+    font-size: 1.55rem;
+
+    letter-spacing: -1px;
+}
+
+
+/* descripción */
+
+.service-card p {
+    max-width: 470px;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+
+    line-height: 1.7;
+}
 
 /* =========================
    RESPONSIVE
@@ -515,5 +659,35 @@ nav {
 
     .hero-buttons a {
         width: 100%;
+    }
+
+    .services {
+    width: 90%;
+
+    padding: 90px 0;
+    }
+
+    .services-grid {
+    grid-template-columns: 1fr;
+    }
+
+    .section-header {
+    margin-bottom: 45px;
+    }
+
+    .section-header h2 {
+    font-size: 2.8rem;
+
+    letter-spacing: -2px;
+    }
+
+    .service-card {
+    min-height: auto;
+
+    padding: 30px;
+    }
+
+    .service-number {
+    margin-bottom: 35px;
     }
 }

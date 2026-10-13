@@ -2,6 +2,7 @@
    ISAAC GALLO — HOME
 
    Brand palette:
+
    Red   #FF5B5B
    Blue  #3DB7FF
    Green #7ED957
@@ -40,12 +41,15 @@
 * {
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
+
 
 html {
     scroll-behavior: smooth;
 }
+
 
 body {
     font-family:
@@ -57,6 +61,7 @@ body {
         sans-serif;
 
     background: var(--white);
+
     color: var(--text);
 
     min-height: 100vh;
@@ -84,6 +89,7 @@ header {
     background: rgba(255, 255, 255, 0.94);
 
     backdrop-filter: blur(18px);
+
     -webkit-backdrop-filter: blur(18px);
 
     border-bottom: 1px solid var(--border);
@@ -102,7 +108,9 @@ nav {
     margin: 0 auto;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 }
 
@@ -113,13 +121,16 @@ nav {
 
 .logo {
     display: flex;
+
     align-items: center;
 
     text-decoration: none;
 }
 
+
 .logo img {
     height: 60px;
+
     width: auto;
 
     display: block;
@@ -134,10 +145,12 @@ nav {
 
 .nav-links {
     display: flex;
+
     align-items: center;
 
     gap: 36px;
 }
+
 
 .nav-links a {
     position: relative;
@@ -147,10 +160,13 @@ nav {
     text-decoration: none;
 
     font-size: 0.95rem;
+
     font-weight: 500;
 
-    transition: color 0.2s ease;
+    transition:
+        color 0.2s ease;
 }
+
 
 .nav-links a::after {
     content: "";
@@ -158,35 +174,41 @@ nav {
     position: absolute;
 
     left: 0;
+
     bottom: -8px;
 
     width: 0;
+
     height: 2px;
 
     border-radius: 10px;
 
     background: var(--blue);
 
-    transition: width 0.25s ease;
+    transition:
+        width 0.25s ease;
 }
+
 
 .nav-links a:hover {
     color: var(--text);
 }
+
 
 .nav-links a:hover::after {
     width: 100%;
 }
 
 
-/* =========================
+/* =====================================================
    HERO
-========================= */
+===================================================== */
 
 .hero {
     position: relative;
 
     width: 100%;
+
     min-height: 100vh;
 
     margin: 0;
@@ -197,17 +219,10 @@ nav {
         80px;
 
     display: flex;
+
     flex-direction: column;
+
     justify-content: center;
-
-    /*
-       Primera capa:
-       degradado blanco para permitir
-       lectura del texto.
-
-       Segunda capa:
-       imagen del hero.
-    */
 
     background-image:
         linear-gradient(
@@ -221,7 +236,9 @@ nav {
         url("../assets/images/hero-home.webp");
 
     background-size: cover;
+
     background-position: center center;
+
     background-repeat: no-repeat;
 
     overflow: hidden;
@@ -234,6 +251,7 @@ nav {
 
 .hero-label {
     display: inline-flex;
+
     align-items: center;
 
     width: fit-content;
@@ -243,6 +261,7 @@ nav {
     color: #60646C;
 
     font-size: 0.8rem;
+
     font-weight: 600;
 
     letter-spacing: 4px;
@@ -250,10 +269,12 @@ nav {
     text-transform: uppercase;
 }
 
+
 .hero-label::before {
     content: "";
 
     width: 32px;
+
     height: 3px;
 
     margin-right: 14px;
@@ -275,7 +296,8 @@ nav {
 
     color: var(--text);
 
-    font-size: clamp(4rem, 8vw, 7rem);
+    font-size:
+        clamp(4rem, 8vw, 7rem);
 
     line-height: 0.95;
 
@@ -314,10 +336,12 @@ nav {
     margin-top: 38px;
 }
 
+
 .hero-buttons a {
     display: inline-flex;
 
     align-items: center;
+
     justify-content: center;
 
     padding: 15px 26px;
@@ -329,6 +353,7 @@ nav {
     text-decoration: none;
 
     font-size: 0.95rem;
+
     font-weight: 650;
 
     transition:
@@ -351,8 +376,10 @@ nav {
         0 8px 25px rgba(61, 183, 255, 0.18);
 }
 
+
 .hero-buttons a:first-child:hover {
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 
     box-shadow:
         0 12px 30px rgba(61, 183, 255, 0.28);
@@ -366,13 +393,16 @@ nav {
 
     color: var(--text);
 
-    border: 1px solid #D6D9DE;
+    border:
+        1px solid #D6D9DE;
 }
+
 
 .hero-buttons a:last-child:hover {
     background: #F6F7F8;
 
-    transform: translateY(-3px);
+    transform:
+        translateY(-3px);
 }
 
 
@@ -382,13 +412,14 @@ nav {
 
 ::selection {
     background: var(--blue);
+
     color: white;
 }
 
 
-/* =========================
+/* =====================================================
    GENERIC SECTION HEADER
-========================= */
+===================================================== */
 
 .section-header {
     max-width: 780px;
@@ -396,10 +427,12 @@ nav {
     margin-bottom: 70px;
 }
 
+
 .section-label {
     color: var(--blue);
 
     font-size: 0.8rem;
+
     font-weight: 700;
 
     letter-spacing: 3px;
@@ -409,10 +442,12 @@ nav {
     margin-bottom: 22px;
 }
 
+
 .section-header h2 {
     color: var(--text);
 
-    font-size: clamp(2.8rem, 5vw, 4.8rem);
+    font-size:
+        clamp(2.8rem, 5vw, 4.8rem);
 
     line-height: 1;
 
@@ -420,6 +455,7 @@ nav {
 
     margin-bottom: 28px;
 }
+
 
 .section-description {
     max-width: 650px;
@@ -437,11 +473,14 @@ nav {
 ===================================================== */
 
 .services {
-    width: min(var(--container), 88%);
+    width:
+        min(var(--container), 88%);
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 
-    padding: 120px 0;
+    padding:
+        120px 0;
 }
 
 
@@ -472,7 +511,8 @@ nav {
 
     background: #FAFAFA;
 
-    border: 1px solid var(--border);
+    border:
+        1px solid var(--border);
 
     border-radius: 24px;
 
@@ -482,10 +522,13 @@ nav {
         border-color 0.25s ease;
 }
 
-.service-card:hover {
-    transform: translateY(-6px);
 
-    border-color: rgba(61, 183, 255, 0.45);
+.service-card:hover {
+    transform:
+        translateY(-6px);
+
+    border-color:
+        rgba(61, 183, 255, 0.45);
 
     box-shadow:
         0 20px 45px rgba(20, 30, 45, 0.08);
@@ -504,6 +547,7 @@ nav {
     color: var(--blue);
 
     font-size: 0.8rem;
+
     font-weight: 700;
 
     letter-spacing: 2px;
@@ -544,17 +588,14 @@ nav {
    PROJECTS
 ===================================================== */
 
-/*
-   Esta sección ocupa todo el ancho
-   y utiliza el gris de fondo.
-*/
-
 .projects {
     width: 100%;
 
-    padding: 120px 0;
+    padding:
+        120px 0;
 
-    background: var(--section-gray);
+    background:
+        var(--section-gray);
 }
 
 
@@ -563,9 +604,11 @@ nav {
 ========================= */
 
 .projects-container {
-    width: min(var(--container), 88%);
+    width:
+        min(var(--container), 88%);
 
-    margin: 0 auto;
+    margin:
+        0 auto;
 }
 
 
@@ -605,13 +648,17 @@ nav {
 .project-image {
     width: 100%;
 
-    aspect-ratio: 4 / 3;
+    aspect-ratio:
+        4 / 3;
 
-    background: var(--white);
+    background:
+        var(--white);
 
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    border:
+        1px solid rgba(0, 0, 0, 0.05);
 
-    border-radius: 20px;
+    border-radius:
+        20px;
 
     overflow: hidden;
 
@@ -621,20 +668,17 @@ nav {
 }
 
 
-/*
-   Esto se aplicará cuando
-   metas las imágenes reales.
-*/
-
 .project-image img {
     width: 100%;
+
     height: 100%;
 
     display: block;
 
     object-fit: cover;
 
-    transition: transform 0.4s ease;
+    transition:
+        transform 0.4s ease;
 }
 
 
@@ -659,16 +703,22 @@ nav {
    PROJECT HOVER
 ========================= */
 
-.project-item:hover .project-image {
-    transform: translateY(-5px);
+.project-item:hover
+.project-image {
+    transform:
+        translateY(-5px);
 
     box-shadow:
         0 18px 35px rgba(20, 30, 45, 0.10);
 }
 
-.project-item:hover .project-image img {
-    transform: scale(1.03);
+
+.project-item:hover
+.project-image img {
+    transform:
+        scale(1.03);
 }
+
 
 /* =====================================================
    PHILOSOPHY
@@ -677,15 +727,20 @@ nav {
 .philosophy {
     width: 100%;
 
-    padding: 140px 0;
+    padding:
+        140px 0;
 
-    background: var(--white);
+    background:
+        var(--white);
 }
 
-.philosophy-container {
-    width: min(var(--container), 88%);
 
-    margin: 0 auto;
+.philosophy-container {
+    width:
+        min(var(--container), 88%);
+
+    margin:
+        0 auto;
 
     display: grid;
 
@@ -718,6 +773,70 @@ nav {
 
 
 /* =========================
+   PHILOSOPHY VISUAL
+========================= */
+
+.philosophy-visual {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 360px;
+
+    margin-top: 45px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 60%,
+            rgba(61, 183, 255, 0.07),
+            transparent 65%
+        );
+}
+
+
+.philosophy-visual {
+    position: relative;
+
+    width: 100%;
+
+    min-height: 420px;
+
+    margin-top: 25px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+
+    overflow: visible;
+
+    background: none;
+}
+
+
+.philosophy-visual img {
+    display: block;
+
+    width: 135%;
+    max-width: none;
+
+    height: auto;
+    max-height: none;
+
+    object-fit: contain;
+
+    transform: translateX(-6%);
+}
+
+
+/* =========================
    PHILOSOPHY CONTENT
 ========================= */
 
@@ -726,6 +845,7 @@ nav {
 
     padding-top: 42px;
 }
+
 
 .philosophy-lead {
     margin-bottom: 28px;
@@ -741,7 +861,9 @@ nav {
     letter-spacing: -1px;
 }
 
-.philosophy-content > p:not(.philosophy-lead) {
+
+.philosophy-content
+> p:not(.philosophy-lead) {
     margin-bottom: 22px;
 
     color: var(--text-soft);
@@ -753,7 +875,7 @@ nav {
 
 
 /* =========================
-   PROCESS
+   PHILOSOPHY PROCESS
 ========================= */
 
 .philosophy-process {
@@ -767,11 +889,14 @@ nav {
     margin-top: 50px;
 }
 
+
 .process-item {
     padding-top: 18px;
 
-    border-top: 2px solid var(--border);
+    border-top:
+        2px solid var(--border);
 }
+
 
 .process-item span {
     display: block;
@@ -787,6 +912,7 @@ nav {
     letter-spacing: 1px;
 }
 
+
 .process-item strong {
     color: var(--text);
 
@@ -794,6 +920,362 @@ nav {
 
     font-weight: 650;
 }
+
+
+/* =====================================================
+   BLOG
+===================================================== */
+
+.blog {
+    width: 100%;
+
+    padding:
+        120px 0;
+
+    background:
+        var(--section-gray);
+}
+
+
+.blog-container {
+    width:
+        min(var(--container), 88%);
+
+    margin:
+        0 auto;
+}
+
+
+/* =========================
+   BLOG HEADER
+========================= */
+
+.blog-header {
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+.blog-header
+.section-header {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   BLOG CONTROLS
+========================= */
+
+.blog-controls {
+    display: flex;
+
+    gap: 10px;
+
+    padding-bottom: 5px;
+}
+
+
+.blog-arrow {
+    width: 48px;
+
+    height: 48px;
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 50%;
+
+    background:
+        var(--white);
+
+    color:
+        var(--text);
+
+    cursor: pointer;
+
+    font-size: 1.25rem;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+}
+
+
+.blog-arrow:hover {
+    transform:
+        translateY(-2px);
+
+    border-color:
+        rgba(61, 183, 255, 0.5);
+
+    background:
+        #F9FCFF;
+}
+
+
+.blog-arrow:disabled {
+    opacity: 0.35;
+
+    cursor: default;
+
+    transform: none;
+}
+
+
+/* =========================
+   BLOG TRACK
+========================= */
+
+.blog-track {
+    display: flex;
+
+    gap: 24px;
+
+    margin-top: 65px;
+
+    overflow-x: auto;
+
+    scroll-behavior: smooth;
+
+    scroll-snap-type:
+        x mandatory;
+
+    scrollbar-width: none;
+
+    overscroll-behavior-x: contain;
+
+    padding-bottom: 10px;
+}
+
+
+.blog-track::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* =========================
+   BLOG CARD
+========================= */
+
+.blog-card {
+    flex:
+        0 0 calc((100% - 48px) / 3);
+
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    scroll-snap-align: start;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    background: var(--white);
+
+    border:
+        1px solid var(--border);
+
+    border-radius: 22px;
+
+    overflow: hidden;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.blog-card:hover {
+    transform:
+        translateY(-5px);
+
+    box-shadow:
+        0 20px 45px rgba(20, 30, 45, 0.08);
+}
+
+
+/* =========================
+   BLOG IMAGE
+========================= */
+
+.blog-card-image {
+    width: 100%;
+
+    aspect-ratio:
+        16 / 9;
+
+    overflow: hidden;
+
+    background:
+        #E9EAEC;
+}
+
+
+.blog-card-image img {
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+.blog-card:hover
+.blog-card-image img {
+    transform:
+        scale(1.03);
+}
+
+
+/* Placeholder mientras no haya imagen */
+
+.blog-card-image-placeholder {
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #FFFFFF,
+            #E9EEF2
+        );
+
+    color:
+        #A1A7B0;
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
+
+    text-transform: uppercase;
+}
+
+
+/* =========================
+   BLOG CONTENT
+========================= */
+
+.blog-card-content {
+    padding: 28px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    flex: 1;
+}
+
+
+.blog-meta {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 18px;
+
+    color: var(--text-soft);
+
+    font-size: 0.75rem;
+
+    font-weight: 600;
+
+    letter-spacing: 0.4px;
+}
+
+
+.blog-category {
+    color: var(--blue);
+}
+
+
+.blog-card h3 {
+    margin-bottom: 16px;
+
+    color: var(--text);
+
+    font-size: 1.45rem;
+
+    line-height: 1.2;
+
+    letter-spacing: -1px;
+}
+
+
+.blog-card p {
+    margin-bottom: 30px;
+
+    color: var(--text-soft);
+
+    font-size: 0.95rem;
+
+    line-height: 1.65;
+}
+
+
+.blog-read-more {
+    margin-top: auto;
+
+    color: var(--text);
+
+    font-size: 0.88rem;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   BLOG FOOTER
+========================= */
+
+.blog-footer {
+    margin-top: 45px;
+}
+
+
+.blog-footer a {
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+
+    font-weight: 700;
+
+    transition:
+        color 0.2s ease;
+}
+
+
+.blog-footer a:hover {
+    color:
+        var(--blue);
+}
+
 
 /* =====================================================
    RESPONSIVE — TABLET
@@ -804,6 +1286,17 @@ nav {
     .projects-grid {
         grid-template-columns:
             repeat(2, minmax(0, 1fr));
+    }
+
+
+    .philosophy-container {
+        gap: 60px;
+    }
+
+
+    .blog-card {
+        flex:
+            0 0 calc((100% - 24px) / 2);
     }
 
 }
@@ -819,20 +1312,18 @@ nav {
         min-height: 76px;
     }
 
+
     .nav-links {
         gap: 20px;
     }
 
-    /*
-       El hero sigue ocupando
-       todo el ancho.
-    */
 
     .hero {
         width: 100%;
 
         padding-top: 120px;
     }
+
 
     .hero h1 {
         font-size:
@@ -841,8 +1332,28 @@ nav {
         letter-spacing: -3px;
     }
 
+
     .hero-description {
         font-size: 1.1rem;
+    }
+
+
+    .philosophy-container {
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+
+    .philosophy-content {
+        max-width: 700px;
+
+        padding-top: 0;
+    }
+
+
+    .philosophy-visual {
+        max-width: 550px;
     }
 
 }
@@ -854,6 +1365,7 @@ nav {
 
 @media (max-width: 700px) {
 
+
     /* =========================
        NAV
     ========================= */
@@ -862,13 +1374,16 @@ nav {
         width: 90%;
     }
 
+
     .logo img {
         height: 48px;
     }
 
+
     .nav-links {
         display: none;
     }
+
 
 
     /* =========================
@@ -887,11 +1402,6 @@ nav {
             5%
             70px;
 
-        /*
-           En móvil damos más blanco
-           para mantener legibilidad.
-        */
-
         background-image:
             linear-gradient(
                 90deg,
@@ -901,14 +1411,17 @@ nav {
             ),
             url("../assets/images/hero-home.webp");
 
-        background-position: center center;
+        background-position:
+            center center;
     }
+
 
     .hero-label {
         font-size: 0.7rem;
 
         letter-spacing: 2.5px;
     }
+
 
     .hero h1 {
         font-size:
@@ -919,9 +1432,11 @@ nav {
         letter-spacing: -3px;
     }
 
+
     .hero-description {
         font-size: 1.05rem;
     }
+
 
     .hero-buttons {
         width: 100%;
@@ -929,9 +1444,11 @@ nav {
         flex-direction: column;
     }
 
+
     .hero-buttons a {
         width: 100%;
     }
+
 
 
     /* =========================
@@ -942,11 +1459,13 @@ nav {
         margin-bottom: 45px;
     }
 
+
     .section-header h2 {
         font-size: 2.8rem;
 
         letter-spacing: -2px;
     }
+
 
 
     /* =========================
@@ -956,12 +1475,16 @@ nav {
     .services {
         width: 90%;
 
-        padding: 90px 0;
+        padding:
+            90px 0;
     }
 
+
     .services-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
     }
+
 
     .service-card {
         min-height: auto;
@@ -969,9 +1492,11 @@ nav {
         padding: 30px;
     }
 
+
     .service-number {
         margin-bottom: 35px;
     }
+
 
 
     /* =========================
@@ -979,51 +1504,137 @@ nav {
     ========================= */
 
     .projects {
-        padding: 90px 0;
+        padding:
+            90px 0;
     }
+
 
     .projects-container {
         width: 90%;
     }
 
+
     .projects-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
         gap: 35px;
 
         margin-top: 40px;
     }
-        .philosophy {
-    padding: 90px 0;
+
+
+
+    /* =========================
+       PHILOSOPHY
+    ========================= */
+
+    .philosophy {
+        padding:
+            90px 0;
     }
+
 
     .philosophy-container {
-    width: 90%;
+        width: 90%;
 
-    grid-template-columns: 1fr;
+        grid-template-columns:
+            1fr;
 
-    gap: 45px;
+        gap: 45px;
     }
+
 
     .philosophy-heading h2 {
-    font-size: 3rem;
+        font-size: 3rem;
 
-    letter-spacing: -3px;
+        letter-spacing: -3px;
     }
+
+
+    .philosophy-visual {
+        min-height: 280px;
+
+        margin-top: 30px;
+    }
+
+
+    .philosophy-visual img {
+        max-height: 320px;
+    }
+
 
     .philosophy-content {
-    padding-top: 0;
+        padding-top: 0;
     }
+
 
     .philosophy-lead {
-    font-size: 1.4rem;
+        font-size: 1.4rem;
     }
 
-    .philosophy-process {
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
 
-    gap: 25px 15px;
+    .philosophy-process {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap:
+            25px 15px;
+    }
+
+
+
+    /* =========================
+       BLOG
+    ========================= */
+
+    .blog {
+        padding:
+            90px 0;
+    }
+
+
+    .blog-container {
+        width: 90%;
+    }
+
+
+    .blog-header {
+        display: block;
+    }
+
+
+    .blog-header
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+
+    .blog-controls {
+        justify-content: flex-end;
+    }
+
+
+    .blog-track {
+        margin-top: 35px;
+
+        gap: 16px;
+    }
+
+
+    .blog-card {
+        flex:
+            0 0 88%;
+    }
+
+
+    .blog-card-content {
+        padding: 24px;
+    }
+
+
+    .blog-card h3 {
+        font-size: 1.3rem;
     }
 
 }

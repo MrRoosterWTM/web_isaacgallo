@@ -1,0 +1,1316 @@
+/* ==========================================================
+   ISAAC GALLO — COOKIE CONSENT
+========================================================== */
+
+
+/* ==========================================================
+   01. VARIABLES
+========================================================== */
+
+:root {
+
+    --cookie-overlay:
+        rgba(7, 19, 28, 0.55);
+
+    --cookie-shadow:
+        0 25px 80px
+        rgba(7, 19, 28, 0.18);
+
+}
+
+
+
+/* ==========================================================
+   02. BODY STATE
+========================================================== */
+
+body.cookie-modal-open {
+
+    overflow:
+        hidden;
+
+}
+
+
+
+/* ==========================================================
+   03. COOKIE BANNER
+========================================================== */
+
+.cookie-banner {
+
+    position:
+        fixed;
+
+    left:
+        50%;
+
+    bottom:
+        28px;
+
+    z-index:
+        9998;
+
+    width:
+        min(
+            1180px,
+            calc(
+                100%
+                -
+                48px
+            )
+        );
+
+    padding:
+        28px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1fr
+        )
+        auto;
+
+    gap:
+        35px;
+
+    align-items:
+        center;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.97
+        );
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        26px;
+
+    box-shadow:
+        var(--cookie-shadow);
+
+    backdrop-filter:
+        blur(20px);
+
+    -webkit-backdrop-filter:
+        blur(20px);
+
+    transform:
+        translate(
+            -50%,
+            calc(
+                100%
+                +
+                70px
+            )
+        );
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transition:
+        transform 0.45s
+        var(--ease),
+        opacity 0.3s ease,
+        visibility 0.3s ease;
+
+}
+
+
+.cookie-banner.is-visible {
+
+    transform:
+        translate(
+            -50%,
+            0
+        );
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+}
+
+
+
+/* ==========================================================
+   04. BANNER CONTENT
+========================================================== */
+
+.cookie-banner-content {
+
+    max-width:
+        690px;
+
+}
+
+
+.cookie-banner-label {
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        9px;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--blue);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        750;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.cookie-banner-label::before {
+
+    content:
+        "";
+
+    width:
+        6px;
+
+    height:
+        6px;
+
+    flex:
+        0 0 auto;
+
+    background:
+        var(--blue);
+
+    border-radius:
+        50%;
+
+}
+
+
+.cookie-banner h2 {
+
+    margin:
+        0 0 10px;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.45rem;
+
+    line-height:
+        1.15;
+
+    font-weight:
+        720;
+
+    letter-spacing:
+        -0.8px;
+
+}
+
+
+.cookie-banner p {
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.92rem;
+
+    line-height:
+        1.65;
+
+}
+
+
+.cookie-banner p a {
+
+    color:
+        var(--text);
+
+    font-weight:
+        650;
+
+    text-decoration:
+        underline;
+
+    text-decoration-thickness:
+        1px;
+
+    text-underline-offset:
+        3px;
+
+}
+
+
+
+/* ==========================================================
+   05. BANNER ACTIONS
+========================================================== */
+
+.cookie-banner-actions {
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            auto
+        );
+
+    gap:
+        9px;
+
+    align-items:
+        center;
+
+}
+
+
+.cookie-button {
+
+    min-height:
+        46px;
+
+    padding:
+        0 20px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    white-space:
+        nowrap;
+
+    color:
+        var(--text);
+
+    font-size:
+        0.86rem;
+
+    font-weight:
+        700;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        #BAC0C7;
+
+    border-radius:
+        999px;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform 0.22s
+        var(--ease),
+        box-shadow 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease;
+
+}
+
+
+.cookie-button:hover {
+
+    transform:
+        translateY(-2px);
+
+}
+
+
+.cookie-button-reject {
+
+    color:
+        var(--white);
+
+    background:
+        #45515B;
+
+    border-color:
+        #45515B;
+
+}
+
+
+.cookie-button-settings {
+
+    color:
+        var(--text);
+
+    background:
+        var(--white);
+
+    border-color:
+        #BAC0C7;
+
+}
+
+
+.cookie-button-accept {
+
+    color:
+        #07131C;
+
+    background:
+        var(--blue);
+
+    border-color:
+        var(--blue);
+
+}
+
+
+.cookie-button-reject:hover {
+
+    box-shadow:
+        0 8px 20px
+        rgba(
+            69,
+            81,
+            91,
+            0.20
+        );
+
+}
+
+
+.cookie-button-accept:hover {
+
+    box-shadow:
+        0 8px 24px
+        rgba(
+            61,
+            183,
+            255,
+            0.26
+        );
+
+}
+
+
+
+/* ==========================================================
+   06. MODAL OVERLAY
+========================================================== */
+
+.cookie-modal-overlay {
+
+    position:
+        fixed;
+
+    inset:
+        0;
+
+    z-index:
+        9999;
+
+    padding:
+        30px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        var(--cookie-overlay);
+
+    opacity:
+        0;
+
+    visibility:
+        hidden;
+
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease;
+
+}
+
+
+.cookie-modal-overlay.is-visible {
+
+    opacity:
+        1;
+
+    visibility:
+        visible;
+
+}
+
+
+
+/* ==========================================================
+   07. MODAL
+========================================================== */
+
+.cookie-modal {
+
+    width:
+        min(
+            650px,
+            100%
+        );
+
+    max-height:
+        min(
+            760px,
+            calc(
+                100vh
+                -
+                60px
+            )
+        );
+
+    overflow-y:
+        auto;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        30px;
+
+    box-shadow:
+        var(--cookie-shadow);
+
+    transform:
+        translateY(25px)
+        scale(0.98);
+
+    transition:
+        transform 0.35s
+        var(--ease);
+
+}
+
+
+.cookie-modal-overlay.is-visible
+.cookie-modal {
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+
+
+/* ==========================================================
+   08. MODAL HEADER
+========================================================== */
+
+.cookie-modal-header {
+
+    padding:
+        30px 30px
+        24px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-start;
+
+    justify-content:
+        space-between;
+
+    gap:
+        25px;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+.cookie-modal-header-text {
+
+    min-width:
+        0;
+
+}
+
+
+.cookie-modal-label {
+
+    display:
+        inline-block;
+
+    margin-bottom:
+        10px;
+
+    color:
+        var(--blue);
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        750;
+
+    letter-spacing:
+        2px;
+
+    text-transform:
+        uppercase;
+
+}
+
+
+.cookie-modal-header h2 {
+
+    margin:
+        0;
+
+    color:
+        var(--text);
+
+    font-size:
+        clamp(
+            1.8rem,
+            4vw,
+            2.4rem
+        );
+
+    line-height:
+        1;
+
+    letter-spacing:
+        -1.5px;
+
+}
+
+
+.cookie-modal-close {
+
+    width:
+        42px;
+
+    height:
+        42px;
+
+    flex:
+        0 0 auto;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.25rem;
+
+    line-height:
+        1;
+
+    background:
+        #F5F6F7;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        50%;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s
+        var(--ease);
+
+}
+
+
+.cookie-modal-close:hover {
+
+    background:
+        #ECEEEF;
+
+    transform:
+        rotate(4deg);
+
+}
+
+
+
+/* ==========================================================
+   09. MODAL INTRO
+========================================================== */
+
+.cookie-modal-intro {
+
+    padding:
+        25px 30px;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.94rem;
+
+    line-height:
+        1.7;
+
+}
+
+
+
+/* ==========================================================
+   10. PREFERENCE LIST
+========================================================== */
+
+.cookie-preferences {
+
+    padding:
+        0 30px;
+
+}
+
+
+.cookie-preference {
+
+    padding:
+        24px 0;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        minmax(
+            0,
+            1fr
+        )
+        auto;
+
+    gap:
+        25px;
+
+    align-items:
+        center;
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+.cookie-preference-info h3 {
+
+    margin:
+        0 0 8px;
+
+    color:
+        var(--text);
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        700;
+
+}
+
+
+.cookie-preference-info p {
+
+    max-width:
+        450px;
+
+    margin:
+        0;
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.86rem;
+
+    line-height:
+        1.6;
+
+}
+
+
+
+/* ==========================================================
+   11. REQUIRED STATUS
+========================================================== */
+
+.cookie-required {
+
+    padding:
+        7px 11px;
+
+    color:
+        #416E30;
+
+    font-size:
+        0.7rem;
+
+    font-weight:
+        750;
+
+    background:
+        rgba(
+            126,
+            217,
+            87,
+            0.14
+        );
+
+    border:
+        1px solid
+        rgba(
+            126,
+            217,
+            87,
+            0.30
+        );
+
+    border-radius:
+        999px;
+
+}
+
+
+
+/* ==========================================================
+   12. SWITCH
+========================================================== */
+
+.cookie-switch {
+
+    position:
+        relative;
+
+    width:
+        50px;
+
+    height:
+        29px;
+
+    flex:
+        0 0 auto;
+
+}
+
+
+.cookie-switch input {
+
+    position:
+        absolute;
+
+    width:
+        1px;
+
+    height:
+        1px;
+
+    opacity:
+        0;
+
+}
+
+
+.cookie-switch-track {
+
+    position:
+        absolute;
+
+    inset:
+        0;
+
+    background:
+        #D7DBDF;
+
+    border-radius:
+        999px;
+
+    cursor:
+        pointer;
+
+    transition:
+        background 0.25s ease;
+
+}
+
+
+.cookie-switch-track::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    top:
+        4px;
+
+    left:
+        4px;
+
+    width:
+        21px;
+
+    height:
+        21px;
+
+    background:
+        var(--white);
+
+    border-radius:
+        50%;
+
+    box-shadow:
+        0 2px 8px
+        rgba(
+            0,
+            0,
+            0,
+            0.16
+        );
+
+    transition:
+        transform 0.25s
+        var(--ease);
+
+}
+
+
+.cookie-switch input:checked
++
+.cookie-switch-track {
+
+    background:
+        var(--blue);
+
+}
+
+
+.cookie-switch input:checked
++
+.cookie-switch-track::after {
+
+    transform:
+        translateX(21px);
+
+}
+
+
+.cookie-switch input:focus-visible
++
+.cookie-switch-track {
+
+    outline:
+        3px solid
+        rgba(
+            61,
+            183,
+            255,
+            0.25
+        );
+
+    outline-offset:
+        3px;
+
+}
+
+
+
+/* ==========================================================
+   13. MODAL FOOTER
+========================================================== */
+
+.cookie-modal-footer {
+
+    padding:
+        24px 30px
+        30px;
+
+    display:
+        grid;
+
+    grid-template-columns:
+        repeat(
+            3,
+            minmax(
+                0,
+                1fr
+            )
+        );
+
+    gap:
+        10px;
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+
+/* ==========================================================
+   14. PRIVACY LINK
+========================================================== */
+
+.cookie-modal-links {
+
+    padding:
+        0 30px
+        25px;
+
+}
+
+
+.cookie-modal-links a {
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.8rem;
+
+    font-weight:
+        650;
+
+    text-decoration:
+        underline;
+
+    text-decoration-thickness:
+        1px;
+
+    text-underline-offset:
+        3px;
+
+    transition:
+        color 0.2s ease;
+
+}
+
+
+.cookie-modal-links a:hover {
+
+    color:
+        var(--blue);
+
+}
+
+
+
+/* ==========================================================
+   15. RESPONSIVE — 950px
+========================================================== */
+
+@media (
+    max-width:
+    950px
+) {
+
+    .cookie-banner {
+
+        grid-template-columns:
+            1fr;
+
+        gap:
+            22px;
+
+    }
+
+
+    .cookie-banner-content {
+
+        max-width:
+            none;
+
+    }
+
+
+    .cookie-banner-actions {
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   16. RESPONSIVE — 700px
+========================================================== */
+
+@media (
+    max-width:
+    700px
+) {
+
+    .cookie-banner {
+
+        width:
+            calc(
+                100%
+                -
+                24px
+            );
+
+        bottom:
+            12px;
+
+        padding:
+            22px;
+
+        border-radius:
+            24px;
+
+    }
+
+
+    .cookie-banner h2 {
+
+        font-size:
+            1.3rem;
+
+    }
+
+
+    .cookie-banner p {
+
+        font-size:
+            0.88rem;
+
+    }
+
+
+    .cookie-banner-actions {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .cookie-button {
+
+        width:
+            100%;
+
+        min-height:
+            48px;
+
+    }
+
+
+    .cookie-modal-overlay {
+
+        padding:
+            12px;
+
+        align-items:
+            flex-end;
+
+    }
+
+
+    .cookie-modal {
+
+        width:
+            100%;
+
+        max-height:
+            calc(
+                100svh
+                -
+                24px
+            );
+
+        border-radius:
+            28px;
+
+    }
+
+
+    .cookie-modal-header {
+
+        padding:
+            25px 22px
+            21px;
+
+    }
+
+
+    .cookie-modal-intro {
+
+        padding:
+            22px;
+
+    }
+
+
+    .cookie-preferences {
+
+        padding:
+            0 22px;
+
+    }
+
+
+    .cookie-preference {
+
+        gap:
+            18px;
+
+    }
+
+
+    .cookie-modal-footer {
+
+        padding:
+            22px;
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .cookie-modal-links {
+
+        padding:
+            0 22px
+            22px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   17. RESPONSIVE — 420px
+========================================================== */
+
+@media (
+    max-width:
+    420px
+) {
+
+    .cookie-banner {
+
+        padding:
+            20px;
+
+    }
+
+
+    .cookie-modal-header h2 {
+
+        font-size:
+            1.75rem;
+
+    }
+
+
+    .cookie-preference {
+
+        align-items:
+            flex-start;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   18. REDUCED MOTION
+========================================================== */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .cookie-banner,
+    .cookie-modal-overlay,
+    .cookie-modal,
+    .cookie-button,
+    .cookie-modal-close,
+    .cookie-switch-track,
+    .cookie-switch-track::after {
+
+        transition:
+            none;
+
+    }
+
+}

@@ -243,10 +243,7 @@ function renderBlogPosts() {
         orderedPosts
 
             .map(
-                (
-                    post,
-                    index
-                ) => {
+                post => {
 
 
                     const imageHTML =
@@ -270,20 +267,21 @@ function renderBlogPosts() {
                             `;
 
 
-                    const revealDelay =
-                        Math.min(
-                            index * 70,
-                            280
-                        );
+                    /*
+                       IMPORTANTE:
 
+                       Las tarjetas del blog NO llevan
+                       data-reveal ni data-delay.
+
+                       De esta forma aparecen directamente
+                       y no tienen animación de entrada.
+                    */
 
                     return `
 
                         <a
                             href="${post.url}"
                             class="blog-card"
-                            data-reveal="up"
-                            data-delay="${revealDelay}"
                         >
 
                             <div
@@ -405,7 +403,9 @@ function getScrollAmount() {
 
 
 
-/* NEXT */
+/* ==========================================================
+   07. BLOG — SIGUIENTE
+========================================================== */
 
 blogNext
     ?.addEventListener(
@@ -428,7 +428,9 @@ blogNext
 
 
 
-/* PREVIOUS */
+/* ==========================================================
+   08. BLOG — ANTERIOR
+========================================================== */
 
 blogPrev
     ?.addEventListener(
@@ -452,7 +454,7 @@ blogPrev
 
 
 /* ==========================================================
-   07. BLOG CONTROLS
+   09. BLOG CONTROLS
 ========================================================== */
 
 function updateBlogControls() {
@@ -494,7 +496,7 @@ function updateBlogControls() {
 
 
 /* ==========================================================
-   08. HEADER SCROLL
+   10. HEADER SCROLL
 ========================================================== */
 
 const siteHeader =
@@ -541,7 +543,7 @@ function updateHeader() {
 
 
 /* ==========================================================
-   09. MOBILE MENU
+   11. MOBILE MENU
 ========================================================== */
 
 const menuToggle =
@@ -684,7 +686,7 @@ document
 
 
 /* ==========================================================
-   10. SCROLL REVEAL
+   12. SCROLL REVEAL
 ========================================================== */
 
 function initialiseRevealAnimations() {
@@ -737,8 +739,8 @@ function initialiseRevealAnimations() {
 
 
     /*
-       Solo ahora activamos
-       el estado oculto CSS.
+       Activamos las animaciones
+       únicamente si JavaScript funciona.
     */
 
     document
@@ -750,8 +752,8 @@ function initialiseRevealAnimations() {
 
 
     /*
-       Aplicamos los retrasos
-       definidos en HTML.
+       Aplicamos retrasos definidos
+       mediante data-delay.
     */
 
     elements
@@ -779,6 +781,7 @@ function initialiseRevealAnimations() {
 
             }
         );
+
 
 
     const observer =
@@ -826,6 +829,7 @@ function initialiseRevealAnimations() {
         );
 
 
+
     elements
         .forEach(
             element => {
@@ -843,7 +847,7 @@ function initialiseRevealAnimations() {
 
 
 /* ==========================================================
-   11. RESIZE
+   13. RESIZE
 ========================================================== */
 
 function handleResize() {
@@ -852,8 +856,9 @@ function handleResize() {
 
 
     /*
-       Si volvemos a escritorio,
-       cerramos el menú móvil.
+       Si pasamos de tablet
+       a escritorio cerramos
+       automáticamente el menú.
     */
 
     if (
@@ -871,19 +876,22 @@ function handleResize() {
 
 
 /* ==========================================================
-   12. INITIALISE
+   14. INITIALISE
 ========================================================== */
+
+/*
+   Primero construimos el blog.
+*/
 
 renderBlogPosts();
 
 
 /*
-   Hay que generar primero
-   las cards del blog.
+   Después iniciamos las animaciones.
 
-   Después inicializamos
-   las animaciones para que
-   también detecten esas cards.
+   Las tarjetas del blog no tienen
+   data-reveal, por lo que quedan fuera
+   automáticamente.
 */
 
 initialiseRevealAnimations();
@@ -896,7 +904,7 @@ updateHeader();
 
 
 /* ==========================================================
-   13. EVENTS
+   15. EVENTS
 ========================================================== */
 
 blogTrack

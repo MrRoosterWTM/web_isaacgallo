@@ -1,6 +1,5 @@
 /* ==========================================================
    ISAAC GALLO — WEBSITE
-   style.css
 ========================================================== */
 
 
@@ -10,15 +9,10 @@
 
 :root {
 
-    /* BRAND */
-
     --red: #FF5B5B;
     --blue: #3DB7FF;
     --green: #7ED957;
     --gray: #E0E0E0;
-
-
-    /* BASE */
 
     --white: #FFFFFF;
     --off-white: #FAFAFA;
@@ -30,9 +24,6 @@
 
     --border: #E5E8EB;
 
-
-    /* FOOTER */
-
     --footer-blue: #0E4058;
     --footer-blue-deep: #092F42;
 
@@ -42,21 +33,12 @@
     --footer-border:
         rgba(255, 255, 255, 0.16);
 
-
-    /* LAYOUT */
-
     --container: 1200px;
-
-
-    /* BORDER RADIUS */
 
     --radius-small: 14px;
     --radius-medium: 22px;
     --radius-large: 28px;
     --radius-section: 40px;
-
-
-    /* SHADOW */
 
     --shadow-soft:
         0 18px 50px
@@ -65,9 +47,6 @@
     --shadow-hover:
         0 25px 65px
         rgba(20, 35, 45, 0.11);
-
-
-    /* MOTION */
 
     --ease:
         cubic-bezier(
@@ -78,7 +57,6 @@
         );
 
 }
-
 
 
 /* ==========================================================
@@ -166,7 +144,6 @@ a {
 }
 
 
-
 /* ==========================================================
    03. HEADER
 ========================================================== */
@@ -249,7 +226,6 @@ a {
 }
 
 
-
 /* ==========================================================
    04. NAV
 ========================================================== */
@@ -291,7 +267,6 @@ a {
         76px;
 
 }
-
 
 
 /* ==========================================================
@@ -342,9 +317,8 @@ a {
 }
 
 
-
 /* ==========================================================
-   06. NAVIGATION LINKS
+   06. NAV LINKS
 ========================================================== */
 
 .nav-links {
@@ -431,7 +405,6 @@ a {
         100%;
 
 }
-
 
 
 /* ==========================================================
@@ -527,8 +500,6 @@ a {
 }
 
 
-/* OPEN → X */
-
 .site-header.menu-open
 .menu-toggle span:nth-child(1) {
 
@@ -556,7 +527,6 @@ a {
         rotate(-45deg);
 
 }
-
 
 
 /* ==========================================================
@@ -678,35 +648,23 @@ a {
             0.055
         );
 
+    transition:
+        color 0.2s ease,
+        padding-left 0.25s
+        var(--ease);
+
 }
 
 
-.mobile-menu
-.mobile-contact {
-
-    margin-top:
-        16px;
-
-    padding:
-        15px 20px;
+.mobile-menu a:hover {
 
     color:
-        #07131C;
-
-    text-align:
-        center;
-
-    background:
         var(--blue);
 
-    border:
-        0;
-
-    border-radius:
-        999px;
+    padding-left:
+        10px;
 
 }
-
 
 
 /* ==========================================================
@@ -754,12 +712,6 @@ a {
 
     overflow:
         hidden;
-
-
-    /*
-       El protagonismo lo tiene la imagen.
-       Sin halos de colores adicionales.
-    */
 
     background-image:
 
@@ -811,7 +763,6 @@ a {
             "../assets/images/hero-home.webp"
         );
 
-
     background-size:
         auto,
         cover;
@@ -824,7 +775,6 @@ a {
         no-repeat;
 
 }
-
 
 
 /* ==========================================================
@@ -886,7 +836,6 @@ a {
 }
 
 
-
 /* ==========================================================
    11. HERO TITLE
 ========================================================== */
@@ -921,7 +870,6 @@ a {
 }
 
 
-
 /* ==========================================================
    12. HERO DESCRIPTION
 ========================================================== */
@@ -941,7 +889,6 @@ a {
         1.7;
 
 }
-
 
 
 /* ==========================================================
@@ -1004,8 +951,6 @@ a {
 }
 
 
-/* PRIMARY */
-
 .hero-buttons
 a:first-child {
 
@@ -1049,8 +994,6 @@ a:first-child:hover {
 }
 
 
-/* SECONDARY */
-
 .hero-buttons
 a:last-child {
 
@@ -1084,9 +1027,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   14. TEXT SELECTION
+   14. SELECTION
 ========================================================== */
 
 ::selection {
@@ -1100,9 +1042,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   15. GENERIC SECTION HEADERS
+   15. SECTION HEADERS
 ========================================================== */
 
 .section-header {
@@ -1218,7 +1159,6 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
    16. SERVICES
 ========================================================== */
@@ -1246,11 +1186,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   17. SERVICES GRID
-========================================================== */
-
 .services-grid {
 
     display:
@@ -1270,11 +1205,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   18. SERVICE CARDS
-========================================================== */
 
 .service-card {
 
@@ -1317,11 +1247,6 @@ a:last-child:hover {
 
 }
 
-
-/*
-   Un pequeño detalle de color,
-   no un fondo completo.
-*/
 
 .service-card::before {
 
@@ -1453,9 +1378,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   19. PROJECTS
+   17. PROJECTS
 ========================================================== */
 
 .projects {
@@ -1477,12 +1401,6 @@ a:last-child:hover {
 
     background-color:
         var(--section-gray);
-
-
-    /*
-       Aquí sí dejamos diseño de fondo.
-       Rejilla tecnológica.
-    */
 
     background-image:
 
@@ -1511,18 +1429,12 @@ a:last-child:hover {
             1px
         );
 
-
     background-size:
         42px 42px,
         42px 42px;
 
 }
 
-
-
-/* ==========================================================
-   20. PROJECTS CONTAINER
-========================================================== */
 
 .projects-container {
 
@@ -1543,11 +1455,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   21. PROJECT GRID
-========================================================== */
 
 .projects-grid {
 
@@ -1571,11 +1478,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   22. PROJECT ITEM
-========================================================== */
 
 .project-item {
 
@@ -1708,9 +1610,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   23. PHILOSOPHY
+   18. PHILOSOPHY
 ========================================================== */
 
 .philosophy {
@@ -1732,11 +1633,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   24. PHILOSOPHY CONTAINER
-========================================================== */
 
 .philosophy-container {
 
@@ -1806,9 +1702,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   25. DAVID
+   19. DAVID
 ========================================================== */
 
 .philosophy-visual {
@@ -1868,9 +1763,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   26. PHILOSOPHY CONTENT
+   20. PHILOSOPHY CONTENT
 ========================================================== */
 
 .philosophy-content {
@@ -1924,11 +1818,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   27. PROCESS
-========================================================== */
 
 .philosophy-process {
 
@@ -2018,9 +1907,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   28. BLOG
+   21. BLOG
 ========================================================== */
 
 .blog {
@@ -2040,12 +1928,6 @@ a:last-child:hover {
     background-color:
         #F5F6F7;
 
-
-    /*
-       Patrón neutro.
-       Sin colores vivos detrás.
-    */
-
     background-image:
 
         radial-gradient(
@@ -2060,17 +1942,11 @@ a:last-child:hover {
             1px
         );
 
-
     background-size:
         28px 28px;
 
 }
 
-
-
-/* ==========================================================
-   29. BLOG CONTAINER
-========================================================== */
 
 .blog-container {
 
@@ -2085,11 +1961,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   30. BLOG HEADER
-========================================================== */
 
 .blog-header {
 
@@ -2116,11 +1987,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   31. BLOG CONTROLS
-========================================================== */
 
 .blog-controls {
 
@@ -2220,11 +2086,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   32. BLOG TRACK
-========================================================== */
-
 .blog-track {
 
     display:
@@ -2237,9 +2098,7 @@ a:last-child:hover {
         65px;
 
     padding:
-        3px
-        2px
-        15px;
+        3px 2px 15px;
 
     overflow-x:
         auto;
@@ -2266,11 +2125,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   33. BLOG CARD
-========================================================== */
 
 .blog-card {
 
@@ -2359,11 +2213,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   34. BLOG IMAGE
-========================================================== */
-
 .blog-card-image {
 
     width:
@@ -2411,11 +2260,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   35. BLOG PLACEHOLDER
-========================================================== */
-
 .blog-card-image-placeholder {
 
     width:
@@ -2458,11 +2302,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   36. BLOG CONTENT
-========================================================== */
 
 .blog-card-content {
 
@@ -2572,11 +2411,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   37. BLOG FOOTER LINK
-========================================================== */
-
 .blog-footer {
 
     margin-top:
@@ -2613,9 +2447,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   38. FOOTER
+   22. FOOTER
 ========================================================== */
 
 .site-footer {
@@ -2651,11 +2484,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   39. FOOTER CONTAINER
-========================================================== */
-
 .footer-container {
 
     width:
@@ -2669,11 +2497,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   40. FOOTER MAIN
-========================================================== */
 
 .footer-main {
 
@@ -2705,11 +2528,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   41. FOOTER BRAND
-========================================================== */
 
 .footer-brand {
 
@@ -2766,11 +2584,6 @@ a:last-child:hover {
 
 }
 
-
-
-/* ==========================================================
-   42. FOOTER SOCIAL
-========================================================== */
 
 .footer-socials {
 
@@ -2886,11 +2699,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   43. FOOTER COLUMNS
-========================================================== */
-
 .footer-column h3 {
 
     margin-bottom:
@@ -2963,11 +2771,6 @@ a:last-child:hover {
 }
 
 
-
-/* ==========================================================
-   44. FOOTER BOTTOM
-========================================================== */
-
 .footer-bottom {
 
     margin-top:
@@ -3014,9 +2817,8 @@ a:last-child:hover {
 }
 
 
-
 /* ==========================================================
-   45. SCROLL ANIMATIONS
+   23. SCROLL ANIMATIONS
 ========================================================== */
 
 html.reveal-ready
@@ -3044,9 +2846,6 @@ html.reveal-ready
 }
 
 
-
-/* UP */
-
 html.reveal-ready
 [data-reveal="up"] {
 
@@ -3059,9 +2858,6 @@ html.reveal-ready
 
 }
 
-
-
-/* LEFT */
 
 html.reveal-ready
 [data-reveal="left"] {
@@ -3076,9 +2872,6 @@ html.reveal-ready
 }
 
 
-
-/* RIGHT */
-
 html.reveal-ready
 [data-reveal="right"] {
 
@@ -3092,9 +2885,6 @@ html.reveal-ready
 }
 
 
-
-/* SCALE */
-
 html.reveal-ready
 [data-reveal="scale"] {
 
@@ -3103,9 +2893,6 @@ html.reveal-ready
 
 }
 
-
-
-/* VISIBLE */
 
 html.reveal-ready
 [data-reveal].is-visible {
@@ -3124,10 +2911,8 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   46. RESPONSIVE — LARGE LAPTOP
-   1280px
+   24. RESPONSIVE — 1280
 ========================================================== */
 
 @media (
@@ -3161,10 +2946,8 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   47. RESPONSIVE — LAPTOP
-   1100px
+   25. RESPONSIVE — 1100
 ========================================================== */
 
 @media (
@@ -3254,10 +3037,8 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   48. RESPONSIVE — TABLET HORIZONTAL
-   900px
+   26. RESPONSIVE — 900
 ========================================================== */
 
 @media (
@@ -3334,17 +3115,6 @@ html.reveal-ready
     }
 
 
-    .philosophy-visual {
-
-        width:
-            min(
-                700px,
-                110%
-            );
-
-    }
-
-
     .footer-main {
 
         grid-template-columns:
@@ -3360,12 +3130,9 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   49. RESPONSIVE — TABLET VERTICAL
+   27. RESPONSIVE — TABLET VERTICAL
    820px
-
-   AQUÍ APARECE HAMBURGUESA
 ========================================================== */
 
 @media (
@@ -3415,6 +3182,63 @@ html.reveal-ready
     }
 
 
+    /*
+       DAVID:
+       desde tablet vertical
+       la imagen queda COMPLETA
+       dentro de su columna.
+
+       No se amplía.
+       No se desplaza.
+       No genera ancho extra.
+    */
+
+    .philosophy-visual {
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        margin-top:
+            30px;
+
+        overflow:
+            visible;
+
+        justify-content:
+            center;
+
+    }
+
+
+    .philosophy-visual img {
+
+        display:
+            block;
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        height:
+            auto;
+
+        transform:
+            none;
+
+        object-fit:
+            contain;
+
+        object-position:
+            center bottom;
+
+    }
+
+
     .footer-main {
 
         grid-template-columns:
@@ -3436,21 +3260,14 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   50. RESPONSIVE — MOBILE
-   700px
+   28. RESPONSIVE — 700
 ========================================================== */
 
 @media (
     max-width:
     700px
 ) {
-
-
-    /* =========================
-       NAV
-    ========================= */
 
     .main-nav {
 
@@ -3460,9 +3277,7 @@ html.reveal-ready
     }
 
 
-    /* =========================
-       HERO
-    ========================= */
+    /* HERO */
 
     .hero {
 
@@ -3476,7 +3291,6 @@ html.reveal-ready
             115px
             5%
             70px;
-
 
         background-image:
 
@@ -3512,11 +3326,9 @@ html.reveal-ready
                 "../assets/images/hero-home.webp"
             );
 
-
         background-size:
             auto,
             cover;
-
 
         background-position:
             center,
@@ -3593,10 +3405,7 @@ html.reveal-ready
     }
 
 
-
-    /* =========================
-       SECTION TITLES
-    ========================= */
+    /* TITLES */
 
     .section-header {
 
@@ -3629,10 +3438,7 @@ html.reveal-ready
     }
 
 
-
-    /* =========================
-       SERVICES
-    ========================= */
+    /* SERVICES */
 
     .services {
 
@@ -3680,10 +3486,7 @@ html.reveal-ready
     }
 
 
-
-    /* =========================
-       PROJECTS
-    ========================= */
+    /* PROJECTS */
 
     .projects {
 
@@ -3719,10 +3522,7 @@ html.reveal-ready
     }
 
 
-
-    /* =========================
-       PHILOSOPHY
-    ========================= */
+    /* PHILOSOPHY */
 
     .philosophy {
 
@@ -3762,9 +3562,8 @@ html.reveal-ready
 
 
     /*
-       CLAVE:
-       David no puede generar
-       ancho adicional en móvil.
+       Se mantiene exactamente
+       dentro del ancho disponible.
     */
 
     .philosophy-visual {
@@ -3779,27 +3578,27 @@ html.reveal-ready
             30px;
 
         overflow:
-            hidden;
+            visible;
 
     }
 
 
     .philosophy-visual img {
 
-        display:
-            block;
-
         width:
-            112%;
+            100%;
 
         max-width:
-            none;
+            100%;
 
         height:
             auto;
 
         transform:
-            translateX(-5%);
+            none;
+
+        object-fit:
+            contain;
 
         object-position:
             center bottom;
@@ -3840,10 +3639,7 @@ html.reveal-ready
     }
 
 
-
-    /* =========================
-       BLOG
-    ========================= */
+    /* BLOG */
 
     .blog {
 
@@ -3917,10 +3713,7 @@ html.reveal-ready
     }
 
 
-
-    /* =========================
-       FOOTER
-    ========================= */
+    /* FOOTER */
 
     .site-footer {
 
@@ -3999,10 +3792,8 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   51. RESPONSIVE — MOBILE PEQUEÑO
-   520px
+   29. RESPONSIVE — 520
 ========================================================== */
 
 @media (
@@ -4093,10 +3884,8 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   52. RESPONSIVE — MUY PEQUEÑO
-   390px
+   30. RESPONSIVE — 390
 ========================================================== */
 
 @media (
@@ -4186,9 +3975,8 @@ html.reveal-ready
 }
 
 
-
 /* ==========================================================
-   53. REDUCED MOTION
+   31. REDUCED MOTION
 ========================================================== */
 
 @media (

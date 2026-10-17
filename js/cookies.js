@@ -1,5 +1,6 @@
 /* ==========================================================
    ISAAC GALLO — COOKIE CONSENT MANAGER
+   Google Analytics 4 + Basic Consent Mode
 ========================================================== */
 
 
@@ -8,7 +9,7 @@
     "use strict";
 
 
-    /* ======================================================   
+    /* ======================================================
        01. CONFIG
     ====================================================== */
 
@@ -16,13 +17,96 @@
         "isaac_cookie_consent";
 
 
+    /*
+       Subimos la versión porque ahora
+       activamos Google Analytics realmente.
+    */
+
     const CONSENT_VERSION =
-        1;
+        2;
+
+
+    const GA_MEASUREMENT_ID =
+        "G-XLW6LY4FLD";
+
+
+    const GA_SCRIPT_ID =
+        "isaac-google-analytics";
+
+
+    let analyticsConfigured =
+        false;
+
+
+    let analyticsActive =
+        false;
 
 
 
     /* ======================================================
-       02. DEFAULT PREFERENCES
+       02. GOOGLE CONSENT — DEFAULT DENIED
+    ====================================================== */
+
+    /*
+       Creamos dataLayer y gtag SIN cargar todavía
+       ningún script de Google.
+
+       Así podemos definir el consentimiento por defecto
+       como denegado antes de cargar Analytics.
+    */
+
+    window.dataLayer =
+        window.dataLayer
+        ||
+        [];
+
+
+    window.gtag =
+        window.gtag
+        ||
+        function () {
+
+            window.dataLayer.push(
+                arguments
+            );
+
+        };
+
+
+    /*
+       Consent Mode v2.
+
+       No usamos publicidad, por lo que todo
+       lo relacionado con Ads queda denegado.
+    */
+
+    window.gtag(
+        "consent",
+        "default",
+        {
+
+            analytics_storage:
+                "denied",
+
+            ad_storage:
+                "denied",
+
+            ad_user_data:
+                "denied",
+
+            ad_personalization:
+                "denied",
+
+            wait_for_update:
+                500
+
+        }
+    );
+
+
+
+    /* ======================================================
+       03. DEFAULT PREFERENCES
     ====================================================== */
 
     const DEFAULT_PREFERENCES = {
@@ -44,7 +128,7 @@
 
 
     /* ======================================================
-       03. STATE
+       04. STATE
     ====================================================== */
 
     let preferences =
@@ -61,7 +145,7 @@
 
 
     /* ======================================================
-       04. CREATE INTERFACE
+       05. CREATE INTERFACE
     ====================================================== */
 
     function createCookieInterface() {
@@ -301,10 +385,10 @@
 
                                 <p>
 
-                                    Permiten obtener estadísticas
-                                    sobre el uso de la web para
-                                    entender qué funciona y mejorar
-                                    la experiencia.
+                                    Utilizamos Google Analytics 4
+                                    para obtener estadísticas sobre
+                                    el uso de la web y mejorar
+                                    progresivamente la experiencia.
 
                                 </p>
 
@@ -414,11 +498,16 @@
 
 
     /* ======================================================
-       05. DOM REFERENCES
+       06. CREATE INTERFACE
     ====================================================== */
 
     createCookieInterface();
 
+
+
+    /* ======================================================
+       07. DOM REFERENCES
+    ====================================================== */
 
     const cookieBanner =
         document.getElementById(
@@ -488,12 +577,13 @@
 
 
     /* ======================================================
-       06. STORAGE
+       08. STORAGE
     ====================================================== */
 
     function loadPreferences() {
 
         try {
+
 
             const stored =
                 localStorage.getItem(
@@ -516,11 +606,21 @@
                 );
 
 
+            /*
+               Si la versión es antigua,
+               pedimos consentimiento otra vez.
+            */
+
             if (
                 parsed.version
                 !==
                 CONSENT_VERSION
             ) {
+
+                localStorage.removeItem(
+                    STORAGE_KEY
+                );
+
 
                 return null;
 
@@ -552,6 +652,7 @@
             error
         ) {
 
+
             return null;
 
         }
@@ -563,6 +664,7 @@
     function savePreferences(
         newPreferences
     ) {
+
 
         preferences = {
 
@@ -586,6 +688,7 @@
 
         try {
 
+
             localStorage.setItem(
                 STORAGE_KEY,
                 JSON.stringify(
@@ -593,15 +696,25 @@
                 )
             );
 
+
         } catch (
             error
         ) {
+
 
             console.warn(
                 "No se pudieron guardar las preferencias de cookies."
             );
 
         }
+
+
+        /*
+           Aplicamos inmediatamente
+           el nuevo estado.
+        */
+
+        applyConsentState();
 
 
         notifyConsentUpdate();
@@ -614,20 +727,369 @@
 
 
     /* ======================================================
-       07. EVENT FOR FUTURE ANALYTICS
+       09. GOOGLE ANALYTICS — LOAD SCRIPT
+    ====================================================== */
+
+    function loadGoogleAnalyticsScript() {
+
+
+        /*
+           Evitamos insertar Google dos veces.
+        */
+
+        if (
+            document.getElementById(
+                GA_SCRIPT_ID
+            )
+        ) {
+
+            return;
+
+        }
+
+
+        const script =
+            document.createElement(
+                "script"
+            );
+
+
+        script.id =
+            GA_SCRIPT_ID;
+
+
+        script.async =
+            true;
+
+
+        script.src =
+            `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+
+
+        document.head.appendChild(
+            script
+        );
+
+    }
+
+
+
+    /* ======================================================
+       10. ENABLE GOOGLE ANALYTICS
+    ====================================================== */
+
+    function enableAnalytics() {
+
+
+        /*
+           Reactivamos Analytics en caso
+           de que hubiera sido desactivado
+           anteriormente durante esta sesión.
+        */
+
+        window[
+            `ga-disable-${GA_MEASUREMENT_ID}`
+        ] =
+            false;
+
+
+
+        /*
+           Actualizamos Consent Mode.
+        */
+
+        window.gtag(
+            "consent",
+            "update",
+            {
+
+                analytics_storage:
+                    "granted",
+
+                ad_storage:
+                    "denied",
+
+                ad_user_data:
+                    "denied",
+
+                ad_personalization:
+                    "denied"
+
+            }
+        );
+
+
+
+        /*
+           Cargamos la librería de Google
+           únicamente después del consentimiento.
+        */
+
+        loadGoogleAnalyticsScript();
+
+
+
+        /*
+           Primera configuración de GA4.
+        */
+
+        if (
+            !analyticsConfigured
+        ) {
+
+
+            window.gtag(
+                "js",
+                new Date()
+            );
+
+
+            window.gtag(
+                "config",
+                GA_MEASUREMENT_ID
+            );
+
+
+            analyticsConfigured =
+                true;
+
+
+            analyticsActive =
+                true;
+
+
+            return;
+
+        }
+
+
+
+        /*
+           Caso especial:
+
+           El usuario había aceptado,
+           luego rechazó,
+           y vuelve a aceptar sin recargar.
+
+           Enviamos una nueva vista
+           para comenzar de nuevo la medición.
+        */
+
+        if (
+            !analyticsActive
+        ) {
+
+
+            window.gtag(
+                "event",
+                "page_view",
+                {
+
+                    send_to:
+                        GA_MEASUREMENT_ID,
+
+                    page_location:
+                        window.location.href,
+
+                    page_title:
+                        document.title
+
+                }
+            );
+
+
+        }
+
+
+        analyticsActive =
+            true;
+
+    }
+
+
+
+    /* ======================================================
+       11. DELETE GOOGLE ANALYTICS COOKIES
+    ====================================================== */
+
+    function deleteAnalyticsCookies() {
+
+
+        const cookies =
+            document.cookie
+                .split(";");
+
+
+        const hostname =
+            window.location.hostname
+                .replace(
+                    /^www\./,
+                    ""
+                );
+
+
+        cookies.forEach(
+            cookie => {
+
+
+                const name =
+                    cookie
+                        .split("=")[0]
+                        .trim();
+
+
+                const isAnalyticsCookie =
+
+                    name === "_ga"
+
+                    ||
+
+                    name.startsWith(
+                        "_ga_"
+                    );
+
+
+                if (
+                    !isAnalyticsCookie
+                ) {
+
+                    return;
+
+                }
+
+
+
+                /*
+                   Eliminamos para el host actual.
+                */
+
+                document.cookie =
+
+                    `${name}=;` +
+                    `expires=Thu, 01 Jan 1970 00:00:00 UTC;` +
+                    `path=/;`;
+
+
+
+                /*
+                   Eliminamos también por dominio
+                   para cubrir cookies establecidas
+                   en .isaacgallo.com.
+                */
+
+                document.cookie =
+
+                    `${name}=;` +
+                    `expires=Thu, 01 Jan 1970 00:00:00 UTC;` +
+                    `path=/;` +
+                    `domain=.${hostname};`;
+
+            }
+        );
+
+    }
+
+
+
+    /* ======================================================
+       12. DISABLE GOOGLE ANALYTICS
+    ====================================================== */
+
+    function disableAnalytics() {
+
+
+        /*
+           Evita que GA continúe enviando
+           datos si ya estaba cargado.
+        */
+
+        window[
+            `ga-disable-${GA_MEASUREMENT_ID}`
+        ] =
+            true;
+
+
+
+        window.gtag(
+            "consent",
+            "update",
+            {
+
+                analytics_storage:
+                    "denied",
+
+                ad_storage:
+                    "denied",
+
+                ad_user_data:
+                    "denied",
+
+                ad_personalization:
+                    "denied"
+
+            }
+        );
+
+
+        analyticsActive =
+            false;
+
+
+        /*
+           Si ya se habían creado cookies,
+           las eliminamos al retirar consentimiento.
+        */
+
+        deleteAnalyticsCookies();
+
+    }
+
+
+
+    /* ======================================================
+       13. APPLY CONSENT STATE
+    ====================================================== */
+
+    function applyConsentState() {
+
+
+        if (
+            preferences.analytics
+        ) {
+
+
+            enableAnalytics();
+
+
+        } else {
+
+
+            disableAnalytics();
+
+        }
+
+    }
+
+
+
+    /* ======================================================
+       14. CONSENT EVENT
     ====================================================== */
 
     function notifyConsentUpdate() {
+
 
         window.dispatchEvent(
 
             new CustomEvent(
                 "isaac:consent-updated",
                 {
+
                     detail:
                         {
                             ...preferences
                         }
+
                 }
             )
 
@@ -638,19 +1100,22 @@
 
 
     /* ======================================================
-       08. BANNER
+       15. BANNER
     ====================================================== */
 
     function showBanner() {
 
+
         requestAnimationFrame(
             () => {
+
 
                 cookieBanner
                     ?.classList
                     .add(
                         "is-visible"
                     );
+
 
             }
         );
@@ -660,6 +1125,7 @@
 
 
     function hideBanner() {
+
 
         cookieBanner
             ?.classList
@@ -672,10 +1138,11 @@
 
 
     /* ======================================================
-       09. MODAL
+       16. MODAL
     ====================================================== */
 
     function openSettings() {
+
 
         lastFocusedElement =
             document.activeElement;
@@ -684,6 +1151,7 @@
         if (
             analyticsToggle
         ) {
+
 
             analyticsToggle.checked =
                 Boolean(
@@ -717,8 +1185,10 @@
         setTimeout(
             () => {
 
+
                 cookieModal
                     ?.focus();
+
 
             },
             30
@@ -729,6 +1199,7 @@
 
 
     function closeSettings() {
+
 
         modalOverlay
             ?.classList
@@ -756,6 +1227,7 @@
             instanceof HTMLElement
         ) {
 
+
             lastFocusedElement
                 .focus();
 
@@ -766,15 +1238,18 @@
 
 
     /* ======================================================
-       10. ACCEPT
+       17. ACCEPT ALL
     ====================================================== */
 
     function acceptAll() {
 
+
         savePreferences(
             {
+
                 analytics:
                     true
+
             }
         );
 
@@ -788,15 +1263,18 @@
 
 
     /* ======================================================
-       11. REJECT
+       18. REJECT ALL
     ====================================================== */
 
     function rejectAll() {
 
+
         savePreferences(
             {
+
                 analytics:
                     false
+
             }
         );
 
@@ -810,18 +1288,21 @@
 
 
     /* ======================================================
-       12. SAVE CUSTOM
+       19. SAVE CUSTOM PREFERENCES
     ====================================================== */
 
     function saveCustomPreferences() {
 
+
         savePreferences(
             {
+
                 analytics:
                     Boolean(
                         analyticsToggle
                             ?.checked
                     )
+
             }
         );
 
@@ -835,11 +1316,11 @@
 
 
     /* ======================================================
-       13. EXTERNAL SETTINGS BUTTON
-       /cookies/ → #openCookieSettings
+       20. EXTERNAL SETTINGS BUTTONS
     ====================================================== */
 
     function initialiseExternalSettingsButtons() {
+
 
         document
             .querySelectorAll(
@@ -848,11 +1329,13 @@
             .forEach(
                 button => {
 
+
                     button
                         .addEventListener(
                             "click",
                             openSettings
                         );
+
 
                 }
             );
@@ -862,18 +1345,21 @@
 
 
     /* ======================================================
-       14. KEYBOARD
+       21. KEYBOARD / ACCESSIBILITY
     ====================================================== */
 
     function handleKeyboard(
         event
     ) {
 
+
         if (
             event.key
             ===
             "Escape"
+
             &&
+
             modalOverlay
                 ?.classList
                 .contains(
@@ -881,18 +1367,23 @@
                 )
         ) {
 
+
             closeSettings();
+
 
             return;
 
         }
 
 
+
         if (
             event.key
             !==
             "Tab"
+
             ||
+
             !modalOverlay
                 ?.classList
                 .contains(
@@ -900,9 +1391,11 @@
                 )
         ) {
 
+
             return;
 
         }
+
 
 
         const focusableElements =
@@ -923,6 +1416,7 @@
             !focusableElements.length
         ) {
 
+
             return;
 
         }
@@ -940,6 +1434,7 @@
             ];
 
 
+
         if (
             event.shiftKey
             &&
@@ -948,9 +1443,12 @@
             first
         ) {
 
+
             event.preventDefault();
 
+
             last.focus();
+
 
         } else if (
             !event.shiftKey
@@ -960,7 +1458,9 @@
             last
         ) {
 
+
             event.preventDefault();
+
 
             first.focus();
 
@@ -971,7 +1471,7 @@
 
 
     /* ======================================================
-       15. CLICK OUTSIDE MODAL
+       22. CLICK OUTSIDE MODAL
     ====================================================== */
 
     modalOverlay
@@ -979,11 +1479,13 @@
             "click",
             event => {
 
+
                 if (
                     event.target
                     ===
                     modalOverlay
                 ) {
+
 
                     closeSettings();
 
@@ -995,7 +1497,7 @@
 
 
     /* ======================================================
-       16. BUTTON EVENTS
+       23. BUTTON EVENTS
     ====================================================== */
 
     rejectAllButton
@@ -1056,22 +1558,26 @@
 
 
     /* ======================================================
-       17. PUBLIC API
-       La usaremos con Google Analytics
+       24. PUBLIC API
     ====================================================== */
 
     window.IsaacConsent = {
 
+
         getPreferences() {
 
+
             return {
+
                 ...preferences
+
             };
 
         },
 
 
         hasAnalyticsConsent() {
+
 
             return Boolean(
                 preferences.analytics
@@ -1091,7 +1597,7 @@
 
 
     /* ======================================================
-       18. INITIALISE
+       25. INITIALISE
     ====================================================== */
 
     initialiseExternalSettingsButtons();
@@ -1101,34 +1607,47 @@
         loadPreferences();
 
 
+
     if (
         storedPreferences
     ) {
+
 
         preferences =
             storedPreferences;
 
 
         /*
-           Ya existe una decisión.
+           Ya existe una decisión válida.
 
-           No mostramos el banner.
-           Informamos al resto de scripts
-           del estado actual.
+           Aplicamos directamente
+           el estado correspondiente.
         */
+
+        applyConsentState();
+
 
         notifyConsentUpdate();
 
 
     } else {
 
-        /*
-           Primera visita.
 
-           No hay consentimiento.
-           Analytics sigue desactivado
-           y mostramos el banner.
+        /*
+           Primera visita o consentimiento antiguo.
+
+           Google permanece bloqueado.
         */
+
+        preferences = {
+
+            ...DEFAULT_PREFERENCES
+
+        };
+
+
+        disableAnalytics();
+
 
         showBanner();
 

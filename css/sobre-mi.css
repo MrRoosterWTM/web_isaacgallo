@@ -323,7 +323,7 @@
 
     overflow: hidden;
 
-    background: var(--dark-blue);
+    background: #0E4058;
 }
 
 
@@ -332,11 +332,11 @@
 
     position: absolute;
 
-    width: 560px;
-    height: 560px;
+    width: 520px;
+    height: 520px;
 
-    top: -350px;
-    right: -180px;
+    top: -340px;
+    right: -170px;
 
     border:
         1px solid rgba(255, 255, 255, 0.08);
@@ -350,14 +350,14 @@
 
     position: absolute;
 
-    width: 360px;
-    height: 360px;
+    width: 340px;
+    height: 340px;
 
-    left: -170px;
-    bottom: -240px;
+    left: -160px;
+    bottom: -230px;
 
     border:
-        1px solid rgba(255, 255, 255, 0.07);
+        1px solid rgba(255, 255, 255, 0.06);
 
     border-radius: 50%;
 }
@@ -368,7 +368,10 @@
 
     z-index: 1;
 
-    max-width: 1000px;
+    width: min(900px, 88%);
+    max-width: 900px;
+
+    margin: 0 auto;
 
     text-align: center;
 }
@@ -377,17 +380,13 @@
 .quote-mark {
     display: block;
 
-    height: 85px;
+    height: 75px;
 
-    color:
-        rgba(61,
-            183,
-            255,
-            0.8);
+    color: #3DB7FF;
 
     font-family: Georgia, serif;
 
-    font-size: 8rem;
+    font-size: 7rem;
 
     line-height: 1;
 }
@@ -399,11 +398,13 @@
 
 
 .about-quote blockquote p {
-    color: var(--white);
+    margin: 0;
+
+    color: #FFFFFF;
 
     font-size:
-        clamp(2.2rem,
-            4.8vw,
+        clamp(2.4rem,
+            4.5vw,
             4.7rem);
 
     font-weight: 650;
@@ -415,7 +416,7 @@
 
 
 .quote-line {
-    width: 54px;
+    width: 50px;
     height: 2px;
 
     margin:
@@ -423,38 +424,22 @@
 
     border-radius: 20px;
 
-    background: var(--blue);
+    background: #3DB7FF;
 }
 
 
 .quote-author {
     margin: 0;
 
-    color: var(--white);
+    color:
+        rgba(255, 255, 255, 0.72);
 
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 650;
 
-    letter-spacing: 0.8px;
+    letter-spacing: 2px;
+
     text-transform: uppercase;
-}
-
-
-.quote-caption {
-    max-width: 620px;
-
-    margin:
-        16px auto 0;
-
-    color:
-        rgba(255,
-            255,
-            255,
-            0.62);
-
-    font-size: 0.95rem;
-
-    line-height: 1.7;
 }
 
 
@@ -665,14 +650,14 @@
 
     .about-quote {
         padding:
-            90px 0;
+            100px 0;
     }
 
 
     .quote-mark {
-        height: 65px;
+        height: 60px;
 
-        font-size: 6rem;
+        font-size: 5.5rem;
     }
 
 
@@ -680,14 +665,23 @@
         font-size:
             clamp(2rem,
                 10vw,
-                3.1rem);
+                3rem);
 
-        letter-spacing: -1.7px;
+        line-height: 1.12;
+
+        letter-spacing: -1.5px;
     }
 
 
     .quote-line {
-        margin-top: 34px;
+        margin-top: 32px;
+    }
+
+
+    .quote-author {
+        font-size: 0.78rem;
+
+        letter-spacing: 1.7px;
     }
 
 }

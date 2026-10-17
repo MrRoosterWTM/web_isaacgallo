@@ -1,0 +1,752 @@
+/* ==========================================================
+   ISAAC GALLO — SOBRE MÍ
+========================================================== */
+
+
+/* ==========================================================
+   01. PAGE
+========================================================== */
+
+.about-page {
+    width: 100%;
+
+    overflow: hidden;
+
+    background: var(--white);
+}
+
+
+.about-container,
+.about-section-inner,
+.about-quote-inner {
+    width: min(var(--container), 88%);
+
+    margin: 0 auto;
+}
+
+
+
+/* ==========================================================
+   02. INTRO
+========================================================== */
+
+.about-intro {
+    position: relative;
+
+    padding:
+        190px
+        0
+        130px;
+
+    background: var(--white);
+}
+
+
+.about-intro::after {
+    content: "";
+
+    position: absolute;
+
+    left: 6%;
+    right: 6%;
+    bottom: 0;
+
+    height: 1px;
+
+    background: var(--border);
+}
+
+
+.about-intro h1 {
+    max-width: 950px;
+
+    margin-top: 24px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            3.8rem,
+            7vw,
+            7rem
+        );
+
+    font-weight: 700;
+
+    line-height: 0.94;
+
+    letter-spacing: -5px;
+}
+
+
+.about-intro-text {
+    max-width: 720px;
+
+    margin-top: 38px;
+
+    color: var(--text-soft);
+
+    font-size:
+        clamp(
+            1.1rem,
+            1.7vw,
+            1.35rem
+        );
+
+    line-height: 1.7;
+}
+
+
+
+/* ==========================================================
+   03. SECTIONS
+========================================================== */
+
+.about-section {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        130px
+        0;
+
+    background: var(--white);
+}
+
+
+.about-section-alt {
+    background:
+        #F8F9FA;
+}
+
+
+
+/* ==========================================================
+   04. SECTION GRID
+========================================================== */
+
+.about-section-inner {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        minmax(0, 0.9fr);
+
+    grid-template-areas:
+        "heading media"
+        "body media";
+
+    column-gap: 100px;
+    row-gap: 34px;
+
+    align-items: start;
+}
+
+
+.about-section-reverse {
+    grid-template-columns:
+        minmax(0, 0.9fr)
+        minmax(0, 1fr);
+
+    grid-template-areas:
+        "media heading"
+        "media body";
+}
+
+
+
+/* ==========================================================
+   05. HEADING
+========================================================== */
+
+.about-heading {
+    grid-area: heading;
+
+    align-self: end;
+}
+
+
+.about-number {
+    display: block;
+
+    margin-bottom: 24px;
+
+    color: var(--blue);
+
+    font-size: 0.78rem;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+}
+
+
+.about-heading h2 {
+    max-width: 610px;
+
+    margin-top: 18px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            2.8rem,
+            4.5vw,
+            5rem
+        );
+
+    line-height: 0.98;
+
+    letter-spacing: -3px;
+}
+
+
+
+/* ==========================================================
+   06. IMAGE
+========================================================== */
+
+.about-media {
+    grid-area: media;
+
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 4 / 5;
+
+    overflow: hidden;
+
+    border-radius: 28px;
+
+    background: #ECEFF1;
+
+    box-shadow:
+        0
+        30px
+        70px
+        rgba(20, 30, 45, 0.08);
+}
+
+
+.about-media::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.15);
+
+    border-radius: inherit;
+}
+
+
+.about-media img {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    transition:
+        transform
+        0.7s
+        var(--ease);
+}
+
+
+.about-section:hover
+.about-media img {
+    transform:
+        scale(1.025);
+}
+
+
+
+/* ==========================================================
+   07. BODY
+========================================================== */
+
+.about-body {
+    grid-area: body;
+
+    max-width: 630px;
+}
+
+
+.about-body p {
+    margin-bottom: 20px;
+
+    color: var(--text-soft);
+
+    font-size: 1.04rem;
+
+    line-height: 1.8;
+}
+
+
+.about-body p:last-child {
+    margin-bottom: 0;
+}
+
+
+.about-body .about-lead {
+    color: var(--text);
+
+    font-size:
+        clamp(
+            1.18rem,
+            1.5vw,
+            1.35rem
+        );
+
+    font-weight: 550;
+
+    line-height: 1.6;
+}
+
+
+
+/* ==========================================================
+   08. SMALL BRAND DETAILS
+========================================================== */
+
+.about-section:nth-of-type(odd)
+.about-media {
+    border-bottom-right-radius: 70px;
+}
+
+
+.about-section:nth-of-type(even)
+.about-media {
+    border-top-left-radius: 70px;
+}
+
+
+
+/* ==========================================================
+   09. QUOTE
+========================================================== */
+
+.about-quote {
+    position: relative;
+
+    width: 100%;
+
+    padding:
+        150px
+        0;
+
+    overflow: hidden;
+
+    background: var(--dark-blue);
+}
+
+
+.about-quote::before {
+    content: "";
+
+    position: absolute;
+
+    width: 560px;
+    height: 560px;
+
+    top: -350px;
+    right: -180px;
+
+    border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.08);
+
+    border-radius: 50%;
+}
+
+
+.about-quote::after {
+    content: "";
+
+    position: absolute;
+
+    width: 360px;
+    height: 360px;
+
+    left: -170px;
+    bottom: -240px;
+
+    border:
+        1px
+        solid
+        rgba(255, 255, 255, 0.07);
+
+    border-radius: 50%;
+}
+
+
+.about-quote-inner {
+    position: relative;
+
+    z-index: 1;
+
+    max-width: 1000px;
+
+    text-align: center;
+}
+
+
+.quote-mark {
+    display: block;
+
+    height: 85px;
+
+    color:
+        rgba(
+            61,
+            183,
+            255,
+            0.8
+        );
+
+    font-family: Georgia, serif;
+
+    font-size: 8rem;
+
+    line-height: 1;
+}
+
+
+.about-quote blockquote {
+    margin: 0;
+}
+
+
+.about-quote blockquote p {
+    color: var(--white);
+
+    font-size:
+        clamp(
+            2.2rem,
+            4.8vw,
+            4.7rem
+        );
+
+    font-weight: 650;
+
+    line-height: 1.08;
+
+    letter-spacing: -2.5px;
+}
+
+
+.quote-line {
+    width: 48px;
+    height: 2px;
+
+    margin:
+        42px
+        auto
+        24px;
+
+    border-radius: 20px;
+
+    background: var(--blue);
+}
+
+
+.quote-caption {
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.62
+        );
+
+    font-size: 0.92rem;
+
+    letter-spacing: 0.3px;
+}
+
+
+
+/* ==========================================================
+   10. RESPONSIVE
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .about-section-inner,
+    .about-section-reverse {
+        column-gap: 65px;
+    }
+
+
+    .about-heading h2 {
+        letter-spacing: -2.5px;
+    }
+
+}
+
+
+
+/* ==========================================================
+   TABLET / MOBILE
+========================================================== */
+
+@media (max-width: 820px) {
+
+    .about-intro {
+        padding:
+            150px
+            0
+            90px;
+    }
+
+
+    .about-intro h1 {
+        letter-spacing: -3px;
+    }
+
+
+
+    /*
+       IMPORTANTE:
+
+       Todas las secciones mantienen
+       exactamente el mismo orden móvil:
+
+       1. título
+       2. imagen
+       3. texto
+    */
+
+    .about-section-inner,
+    .about-section-reverse {
+        display: grid;
+
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        grid-template-areas:
+            "heading"
+            "media"
+            "body";
+
+        gap: 0;
+    }
+
+
+    .about-section {
+        padding:
+            90px
+            0;
+    }
+
+
+    .about-heading {
+        margin-bottom: 36px;
+    }
+
+
+    .about-heading h2 {
+        max-width: 650px;
+
+        letter-spacing: -2px;
+    }
+
+
+    .about-media {
+        width: 100%;
+
+        max-width: 650px;
+
+        margin:
+            0
+            auto
+            38px;
+
+        aspect-ratio: 4 / 5;
+
+        border-radius: 24px;
+    }
+
+
+    .about-section:nth-of-type(odd)
+    .about-media,
+    .about-section:nth-of-type(even)
+    .about-media {
+        border-radius: 24px;
+    }
+
+
+    .about-body {
+        max-width: 650px;
+    }
+
+
+    .about-quote {
+        padding:
+            110px
+            0;
+    }
+
+}
+
+
+
+/* ==========================================================
+   PHONE
+========================================================== */
+
+@media (max-width: 600px) {
+
+    .about-container,
+    .about-section-inner,
+    .about-quote-inner {
+        width: 88%;
+    }
+
+
+    .about-intro {
+        padding:
+            135px
+            0
+            75px;
+    }
+
+
+    .about-intro h1 {
+        margin-top: 18px;
+
+        font-size:
+            clamp(
+                3.1rem,
+                14vw,
+                4.6rem
+            );
+
+        line-height: 0.98;
+
+        letter-spacing: -2.5px;
+    }
+
+
+    .about-intro-text {
+        margin-top: 28px;
+
+        font-size: 1.05rem;
+    }
+
+
+    .about-section {
+        padding:
+            75px
+            0;
+    }
+
+
+    .about-number {
+        margin-bottom: 18px;
+    }
+
+
+    .about-heading {
+        margin-bottom: 28px;
+    }
+
+
+    .about-heading h2 {
+        margin-top: 14px;
+
+        font-size:
+            clamp(
+                2.55rem,
+                12vw,
+                3.7rem
+            );
+
+        letter-spacing: -2px;
+    }
+
+
+    .about-media {
+        margin-bottom: 32px;
+
+        border-radius: 20px;
+    }
+
+
+    .about-body p {
+        font-size: 1rem;
+
+        line-height: 1.75;
+    }
+
+
+    .about-body .about-lead {
+        font-size: 1.14rem;
+    }
+
+
+    .about-quote {
+        padding:
+            90px
+            0;
+    }
+
+
+    .quote-mark {
+        height: 65px;
+
+        font-size: 6rem;
+    }
+
+
+    .about-quote blockquote p {
+        font-size:
+            clamp(
+                2rem,
+                10vw,
+                3.1rem
+            );
+
+        letter-spacing: -1.7px;
+    }
+
+
+    .quote-line {
+        margin-top: 34px;
+    }
+
+}
+
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .about-media img {
+        transition: none;
+    }
+
+
+    .about-section:hover
+    .about-media img {
+        transform: none;
+    }
+
+}

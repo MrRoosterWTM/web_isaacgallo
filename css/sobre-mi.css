@@ -34,9 +34,7 @@
     position: relative;
 
     padding:
-        190px
-        0
-        130px;
+        190px 0 130px;
 
     background: var(--white);
 }
@@ -65,11 +63,9 @@
     color: var(--text);
 
     font-size:
-        clamp(
-            3.8rem,
+        clamp(3.8rem,
             7vw,
-            7rem
-        );
+            7rem);
 
     font-weight: 700;
 
@@ -87,11 +83,9 @@
     color: var(--text-soft);
 
     font-size:
-        clamp(
-            1.1rem,
+        clamp(1.1rem,
             1.7vw,
-            1.35rem
-        );
+            1.35rem);
 
     line-height: 1.7;
 }
@@ -108,8 +102,7 @@
     width: 100%;
 
     padding:
-        130px
-        0;
+        130px 0;
 
     background: var(--white);
 }
@@ -130,8 +123,7 @@
     display: grid;
 
     grid-template-columns:
-        minmax(0, 1fr)
-        minmax(0, 0.9fr);
+        minmax(0, 1fr) minmax(0, 0.9fr);
 
     grid-template-areas:
         "heading media"
@@ -146,8 +138,7 @@
 
 .about-section-reverse {
     grid-template-columns:
-        minmax(0, 0.9fr)
-        minmax(0, 1fr);
+        minmax(0, 0.9fr) minmax(0, 1fr);
 
     grid-template-areas:
         "media heading"
@@ -189,11 +180,9 @@
     color: var(--text);
 
     font-size:
-        clamp(
-            2.8rem,
+        clamp(2.8rem,
             4.5vw,
-            5rem
-        );
+            5rem);
 
     line-height: 0.98;
 
@@ -222,10 +211,7 @@
     background: #ECEFF1;
 
     box-shadow:
-        0
-        30px
-        70px
-        rgba(20, 30, 45, 0.08);
+        0 30px 70px rgba(20, 30, 45, 0.08);
 }
 
 
@@ -239,9 +225,7 @@
     pointer-events: none;
 
     border:
-        1px
-        solid
-        rgba(255, 255, 255, 0.15);
+        1px solid rgba(255, 255, 255, 0.15);
 
     border-radius: inherit;
 }
@@ -257,14 +241,11 @@
     object-position: center;
 
     transition:
-        transform
-        0.7s
-        var(--ease);
+        transform 0.7s var(--ease);
 }
 
 
-.about-section:hover
-.about-media img {
+.about-section:hover .about-media img {
     transform:
         scale(1.025);
 }
@@ -302,11 +283,9 @@
     color: var(--text);
 
     font-size:
-        clamp(
-            1.18rem,
+        clamp(1.18rem,
             1.5vw,
-            1.35rem
-        );
+            1.35rem);
 
     font-weight: 550;
 
@@ -319,14 +298,12 @@
    08. SMALL BRAND DETAILS
 ========================================================== */
 
-.about-section:nth-of-type(odd)
-.about-media {
+.about-section:nth-of-type(odd) .about-media {
     border-bottom-right-radius: 70px;
 }
 
 
-.about-section:nth-of-type(even)
-.about-media {
+.about-section:nth-of-type(even) .about-media {
     border-top-left-radius: 70px;
 }
 
@@ -342,8 +319,7 @@
     width: 100%;
 
     padding:
-        150px
-        0;
+        150px 0;
 
     overflow: hidden;
 
@@ -363,9 +339,7 @@
     right: -180px;
 
     border:
-        1px
-        solid
-        rgba(255, 255, 255, 0.08);
+        1px solid rgba(255, 255, 255, 0.08);
 
     border-radius: 50%;
 }
@@ -383,9 +357,7 @@
     bottom: -240px;
 
     border:
-        1px
-        solid
-        rgba(255, 255, 255, 0.07);
+        1px solid rgba(255, 255, 255, 0.07);
 
     border-radius: 50%;
 }
@@ -408,12 +380,10 @@
     height: 85px;
 
     color:
-        rgba(
-            61,
+        rgba(61,
             183,
             255,
-            0.8
-        );
+            0.8);
 
     font-family: Georgia, serif;
 
@@ -432,11 +402,9 @@
     color: var(--white);
 
     font-size:
-        clamp(
-            2.2rem,
+        clamp(2.2rem,
             4.8vw,
-            4.7rem
-        );
+            4.7rem);
 
     font-weight: 650;
 
@@ -447,13 +415,11 @@
 
 
 .quote-line {
-    width: 48px;
+    width: 54px;
     height: 2px;
 
     margin:
-        42px
-        auto
-        24px;
+        42px auto 22px;
 
     border-radius: 20px;
 
@@ -461,18 +427,34 @@
 }
 
 
+.quote-author {
+    margin: 0;
+
+    color: var(--white);
+
+    font-size: 1rem;
+    font-weight: 650;
+
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+
 .quote-caption {
+    max-width: 620px;
+
+    margin:
+        16px auto 0;
+
     color:
-        rgba(
+        rgba(255,
             255,
             255,
-            255,
-            0.62
-        );
+            0.62);
 
-    font-size: 0.92rem;
+    font-size: 0.95rem;
 
-    letter-spacing: 0.3px;
+    line-height: 1.7;
 }
 
 
@@ -505,9 +487,7 @@
 
     .about-intro {
         padding:
-            150px
-            0
-            90px;
+            150px 0 90px;
     }
 
 
@@ -546,8 +526,7 @@
 
     .about-section {
         padding:
-            90px
-            0;
+            90px 0;
     }
 
 
@@ -569,9 +548,7 @@
         max-width: 650px;
 
         margin:
-            0
-            auto
-            38px;
+            0 auto 38px;
 
         aspect-ratio: 4 / 5;
 
@@ -579,10 +556,8 @@
     }
 
 
-    .about-section:nth-of-type(odd)
-    .about-media,
-    .about-section:nth-of-type(even)
-    .about-media {
+    .about-section:nth-of-type(odd) .about-media,
+    .about-section:nth-of-type(even) .about-media {
         border-radius: 24px;
     }
 
@@ -594,8 +569,7 @@
 
     .about-quote {
         padding:
-            110px
-            0;
+            110px 0;
     }
 
 }
@@ -617,9 +591,7 @@
 
     .about-intro {
         padding:
-            135px
-            0
-            75px;
+            135px 0 75px;
     }
 
 
@@ -627,11 +599,9 @@
         margin-top: 18px;
 
         font-size:
-            clamp(
-                3.1rem,
+            clamp(3.1rem,
                 14vw,
-                4.6rem
-            );
+                4.6rem);
 
         line-height: 0.98;
 
@@ -648,8 +618,7 @@
 
     .about-section {
         padding:
-            75px
-            0;
+            75px 0;
     }
 
 
@@ -667,11 +636,9 @@
         margin-top: 14px;
 
         font-size:
-            clamp(
-                2.55rem,
+            clamp(2.55rem,
                 12vw,
-                3.7rem
-            );
+                3.7rem);
 
         letter-spacing: -2px;
     }
@@ -698,8 +665,7 @@
 
     .about-quote {
         padding:
-            90px
-            0;
+            90px 0;
     }
 
 
@@ -712,11 +678,9 @@
 
     .about-quote blockquote p {
         font-size:
-            clamp(
-                2rem,
+            clamp(2rem,
                 10vw,
-                3.1rem
-            );
+                3.1rem);
 
         letter-spacing: -1.7px;
     }
@@ -734,18 +698,14 @@
    REDUCED MOTION
 ========================================================== */
 
-@media (
-    prefers-reduced-motion:
-    reduce
-) {
+@media (prefers-reduced-motion: reduce) {
 
     .about-media img {
         transition: none;
     }
 
 
-    .about-section:hover
-    .about-media img {
+    .about-section:hover .about-media img {
         transform: none;
     }
 

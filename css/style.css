@@ -59,6 +59,7 @@
 }
 
 
+
 /* ==========================================================
    02. RESET
 ========================================================== */
@@ -144,6 +145,7 @@ a {
 }
 
 
+
 /* ==========================================================
    03. HEADER
 ========================================================== */
@@ -226,6 +228,7 @@ a {
 }
 
 
+
 /* ==========================================================
    04. NAV
 ========================================================== */
@@ -267,6 +270,7 @@ a {
         76px;
 
 }
+
 
 
 /* ==========================================================
@@ -315,6 +319,7 @@ a {
         52px;
 
 }
+
 
 
 /* ==========================================================
@@ -405,6 +410,7 @@ a {
         100%;
 
 }
+
 
 
 /* ==========================================================
@@ -527,6 +533,7 @@ a {
         rotate(-45deg);
 
 }
+
 
 
 /* ==========================================================
@@ -667,6 +674,7 @@ a {
 }
 
 
+
 /* ==========================================================
    09. HERO
 ========================================================== */
@@ -777,6 +785,7 @@ a {
 }
 
 
+
 /* ==========================================================
    10. HERO LABEL
 ========================================================== */
@@ -836,6 +845,7 @@ a {
 }
 
 
+
 /* ==========================================================
    11. HERO TITLE
 ========================================================== */
@@ -870,6 +880,7 @@ a {
 }
 
 
+
 /* ==========================================================
    12. HERO DESCRIPTION
 ========================================================== */
@@ -889,6 +900,7 @@ a {
         1.7;
 
 }
+
 
 
 /* ==========================================================
@@ -942,8 +954,7 @@ a {
         650;
 
     transition:
-        transform 0.25s
-        var(--ease),
+        transform 0.25s var(--ease),
         box-shadow 0.25s ease,
         background 0.25s ease,
         border-color 0.25s ease;
@@ -951,8 +962,7 @@ a {
 }
 
 
-.hero-buttons
-a:first-child {
+.hero-buttons a:first-child {
 
     color:
         #07131C;
@@ -976,8 +986,7 @@ a:first-child {
 }
 
 
-.hero-buttons
-a:first-child:hover {
+.hero-buttons a:first-child:hover {
 
     transform:
         translateY(-4px);
@@ -994,8 +1003,7 @@ a:first-child:hover {
 }
 
 
-.hero-buttons
-a:last-child {
+.hero-buttons a:last-child {
 
     color:
         var(--text);
@@ -1015,8 +1023,7 @@ a:last-child {
 }
 
 
-.hero-buttons
-a:last-child:hover {
+.hero-buttons a:last-child:hover {
 
     background:
         var(--white);
@@ -1025,6 +1032,7 @@ a:last-child:hover {
         translateY(-4px);
 
 }
+
 
 
 /* ==========================================================
@@ -1040,6 +1048,7 @@ a:last-child:hover {
         var(--blue);
 
 }
+
 
 
 /* ==========================================================
@@ -1157,6 +1166,7 @@ a:last-child:hover {
         1.7;
 
 }
+
 
 
 /* ==========================================================
@@ -1321,25 +1331,130 @@ a:last-child:hover {
 }
 
 
-.service-number {
 
-    display:
-        block;
+/* ==========================================================
+   SERVICE ICONS
+========================================================== */
+
+.service-icon {
+
+    width:
+        54px;
+
+    height:
+        54px;
 
     margin-bottom:
-        55px;
+        47px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     color:
         var(--blue);
 
-    font-size:
-        0.78rem;
+    background:
+        rgba(
+            61,
+            183,
+            255,
+            0.10
+        );
 
-    font-weight:
-        750;
+    border:
+        1px solid
+        rgba(
+            61,
+            183,
+            255,
+            0.18
+        );
 
-    letter-spacing:
-        2px;
+    border-radius:
+        16px;
+
+    transition:
+        transform 0.3s var(--ease),
+        background 0.3s ease;
+
+}
+
+
+.service-icon svg {
+
+    width:
+        27px;
+
+    height:
+        27px;
+
+    stroke-width:
+        1.8;
+
+}
+
+
+.service-card:nth-child(2)
+.service-icon {
+
+    color:
+        #5AAD35;
+
+    background:
+        rgba(
+            126,
+            217,
+            87,
+            0.11
+        );
+
+    border-color:
+        rgba(
+            126,
+            217,
+            87,
+            0.20
+        );
+
+}
+
+
+.service-card:nth-child(3)
+.service-icon {
+
+    color:
+        var(--red);
+
+    background:
+        rgba(
+            255,
+            91,
+            91,
+            0.10
+        );
+
+    border-color:
+        rgba(
+            255,
+            91,
+            91,
+            0.18
+        );
+
+}
+
+
+.service-card:hover
+.service-icon {
+
+    transform:
+        translateY(-3px);
 
 }
 
@@ -1376,6 +1491,7 @@ a:last-child:hover {
         1.7;
 
 }
+
 
 
 /* ==========================================================
@@ -1610,6 +1726,7 @@ a:last-child:hover {
 }
 
 
+
 /* ==========================================================
    18. PHILOSOPHY
 ========================================================== */
@@ -1702,6 +1819,7 @@ a:last-child:hover {
 }
 
 
+
 /* ==========================================================
    19. DAVID
 ========================================================== */
@@ -1761,6 +1879,7 @@ a:last-child:hover {
         left bottom;
 
 }
+
 
 
 /* ==========================================================
@@ -1870,25 +1989,74 @@ a:last-child:hover {
 }
 
 
-.process-item span {
 
-    display:
-        block;
+/* ==========================================================
+   PROCESS ICONS
+========================================================== */
+
+.process-icon {
+
+    width:
+        34px;
+
+    height:
+        34px;
 
     margin-bottom:
-        8px;
+        10px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
 
     color:
         var(--blue);
 
-    font-size:
-        0.72rem;
+}
 
-    font-weight:
-        750;
 
-    letter-spacing:
-        1px;
+.process-icon svg {
+
+    width:
+        24px;
+
+    height:
+        24px;
+
+    stroke-width:
+        1.8;
+
+}
+
+
+.process-item:nth-child(2)
+.process-icon {
+
+    color:
+        var(--red);
+
+}
+
+
+.process-item:nth-child(3)
+.process-icon {
+
+    color:
+        #5AAD35;
+
+}
+
+
+.process-item:nth-child(4)
+.process-icon {
+
+    color:
+        var(--blue);
 
 }
 
@@ -1905,6 +2073,7 @@ a:last-child:hover {
         650;
 
 }
+
 
 
 /* ==========================================================
@@ -2447,6 +2616,7 @@ a:last-child:hover {
 }
 
 
+
 /* ==========================================================
    22. FOOTER
 ========================================================== */
@@ -2817,6 +2987,7 @@ a:last-child:hover {
 }
 
 
+
 /* ==========================================================
    23. SCROLL ANIMATIONS
 ========================================================== */
@@ -2911,6 +3082,7 @@ html.reveal-ready
 }
 
 
+
 /* ==========================================================
    24. RESPONSIVE — 1280
 ========================================================== */
@@ -2944,6 +3116,7 @@ html.reveal-ready
     }
 
 }
+
 
 
 /* ==========================================================
@@ -3035,6 +3208,7 @@ html.reveal-ready
     }
 
 }
+
 
 
 /* ==========================================================
@@ -3130,9 +3304,9 @@ html.reveal-ready
 }
 
 
+
 /* ==========================================================
    27. RESPONSIVE — TABLET VERTICAL
-   820px
 ========================================================== */
 
 @media (
@@ -3181,17 +3355,6 @@ html.reveal-ready
 
     }
 
-
-    /*
-       DAVID:
-       desde tablet vertical
-       la imagen queda COMPLETA
-       dentro de su columna.
-
-       No se amplía.
-       No se desplaza.
-       No genera ancho extra.
-    */
 
     .philosophy-visual {
 
@@ -3258,6 +3421,7 @@ html.reveal-ready
     }
 
 }
+
 
 
 /* ==========================================================
@@ -3478,7 +3642,7 @@ html.reveal-ready
     }
 
 
-    .service-number {
+    .service-icon {
 
         margin-bottom:
             35px;
@@ -3560,11 +3724,6 @@ html.reveal-ready
 
     }
 
-
-    /*
-       Se mantiene exactamente
-       dentro del ancho disponible.
-    */
 
     .philosophy-visual {
 
@@ -3792,6 +3951,7 @@ html.reveal-ready
 }
 
 
+
 /* ==========================================================
    29. RESPONSIVE — 520
 ========================================================== */
@@ -3843,6 +4003,28 @@ html.reveal-ready
     }
 
 
+    .service-icon {
+
+        width:
+            50px;
+
+        height:
+            50px;
+
+    }
+
+
+    .service-icon svg {
+
+        width:
+            25px;
+
+        height:
+            25px;
+
+    }
+
+
     .project-image {
 
         border-radius:
@@ -3882,6 +4064,7 @@ html.reveal-ready
     }
 
 }
+
 
 
 /* ==========================================================
@@ -3973,6 +4156,7 @@ html.reveal-ready
     }
 
 }
+
 
 
 /* ==========================================================

@@ -1,0 +1,1711 @@
+/* ==========================================================
+   ISAAC GALLO — LICO CHAT
+========================================================== */
+
+
+/* ==========================================================
+   01. ROOT
+========================================================== */
+
+.lico-chat {
+
+    position:
+        fixed;
+
+    right:
+        26px;
+
+    bottom:
+        26px;
+
+    z-index:
+        2500;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+}
+
+
+
+/* ==========================================================
+   02. LAUNCHER
+========================================================== */
+
+.lico-chat-launcher {
+
+    min-width:
+        218px;
+
+    min-height:
+        66px;
+
+    padding:
+        8px
+        14px
+        8px
+        8px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+    color:
+        var(--text);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.96
+        );
+
+    border:
+        1px solid
+        rgba(
+            20,
+            35,
+            45,
+            0.10
+        );
+
+    border-radius:
+        999px;
+
+    box-shadow:
+        0
+        15px
+        45px
+        rgba(
+            20,
+            35,
+            45,
+            0.15
+        );
+
+    backdrop-filter:
+        blur(18px);
+
+    -webkit-backdrop-filter:
+        blur(18px);
+
+    cursor:
+        pointer;
+
+    transition:
+        transform
+        0.25s
+        var(--ease),
+        box-shadow
+        0.25s
+        ease,
+        border-color
+        0.25s
+        ease;
+
+}
+
+
+.lico-chat-launcher:hover {
+
+    transform:
+        translateY(-4px);
+
+    border-color:
+        rgba(
+            61,
+            183,
+            255,
+            0.38
+        );
+
+    box-shadow:
+        0
+        20px
+        55px
+        rgba(
+            20,
+            35,
+            45,
+            0.20
+        );
+
+}
+
+
+
+/* ==========================================================
+   03. LAUNCHER AVATAR
+========================================================== */
+
+.lico-launcher-avatar {
+
+    position:
+        relative;
+
+    width:
+        49px;
+
+    height:
+        49px;
+
+    flex:
+        0
+        0
+        49px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    overflow:
+        visible;
+
+    background:
+        #F4F7F8;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        50%;
+
+}
+
+
+.lico-launcher-avatar img {
+
+    width:
+        72%;
+
+    height:
+        72%;
+
+    display:
+        block;
+
+    object-fit:
+        contain;
+
+}
+
+
+
+/* ==========================================================
+   04. STATUS
+========================================================== */
+
+.lico-status-dot {
+
+    position:
+        absolute;
+
+    right:
+        1px;
+
+    bottom:
+        2px;
+
+    width:
+        11px;
+
+    height:
+        11px;
+
+    background:
+        var(--green);
+
+    border:
+        2px solid
+        var(--white);
+
+    border-radius:
+        50%;
+
+}
+
+
+
+/* ==========================================================
+   05. LAUNCHER TEXT
+========================================================== */
+
+.lico-launcher-copy {
+
+    min-width:
+        0;
+
+    flex:
+        1;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    align-items:
+        flex-start;
+
+    gap:
+        2px;
+
+}
+
+
+.lico-launcher-copy strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.84rem;
+
+    font-weight:
+        720;
+
+    line-height:
+        1.2;
+
+}
+
+
+.lico-launcher-copy small {
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.67rem;
+
+    line-height:
+        1.2;
+
+}
+
+
+.lico-launcher-arrow {
+
+    width:
+        29px;
+
+    height:
+        29px;
+
+    flex:
+        0
+        0
+        29px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        var(--white);
+
+    background:
+        var(--footer-blue);
+
+    border-radius:
+        50%;
+
+    font-size:
+        0.9rem;
+
+    font-weight:
+        700;
+
+}
+
+
+
+/* ==========================================================
+   06. CHAT PANEL
+========================================================== */
+
+.lico-chat-panel {
+
+    position:
+        absolute;
+
+    right:
+        0;
+
+    bottom:
+        82px;
+
+    width:
+        min(
+            390px,
+            calc(
+                100vw -
+                32px
+            )
+        );
+
+    height:
+        min(
+            610px,
+            calc(
+                100vh -
+                130px
+            )
+        );
+
+    height:
+        min(
+            610px,
+            calc(
+                100dvh -
+                130px
+            )
+        );
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    overflow:
+        hidden;
+
+    visibility:
+        hidden;
+
+    opacity:
+        0;
+
+    transform:
+        translateY(
+            18px
+        )
+        scale(
+            0.97
+        );
+
+    transform-origin:
+        bottom right;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        rgba(
+            20,
+            35,
+            45,
+            0.10
+        );
+
+    border-radius:
+        27px;
+
+    box-shadow:
+        0
+        35px
+        90px
+        rgba(
+            10,
+            31,
+            43,
+            0.22
+        );
+
+    transition:
+        opacity
+        0.25s
+        ease,
+        transform
+        0.32s
+        var(--ease),
+        visibility
+        0.25s
+        ease;
+
+}
+
+
+.lico-chat.is-open
+.lico-chat-panel {
+
+    visibility:
+        visible;
+
+    opacity:
+        1;
+
+    transform:
+        translateY(
+            0
+        )
+        scale(
+            1
+        );
+
+}
+
+
+
+/* ==========================================================
+   07. PANEL HEADER
+========================================================== */
+
+.lico-chat-header {
+
+    min-height:
+        78px;
+
+    padding:
+        0
+        19px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        space-between;
+
+    flex:
+        0 0
+        auto;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.97
+        );
+
+}
+
+
+.lico-chat-identity {
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        11px;
+
+}
+
+
+.lico-chat-avatar {
+
+    position:
+        relative;
+
+    width:
+        43px;
+
+    height:
+        43px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    background:
+        #F4F7F8;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        50%;
+
+}
+
+
+.lico-chat-avatar img {
+
+    width:
+        72%;
+
+    height:
+        72%;
+
+    object-fit:
+        contain;
+
+}
+
+
+.lico-chat-identity > div:last-child {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        2px;
+
+}
+
+
+.lico-chat-identity strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.88rem;
+
+    font-weight:
+        750;
+
+}
+
+
+.lico-chat-identity
+span:not(.lico-status-dot) {
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.68rem;
+
+}
+
+
+
+/* ==========================================================
+   08. CLOSE
+========================================================== */
+
+.lico-chat-close {
+
+    position:
+        relative;
+
+    width:
+        36px;
+
+    height:
+        36px;
+
+    padding:
+        0;
+
+    background:
+        #F5F6F7;
+
+    border:
+        none;
+
+    border-radius:
+        50%;
+
+    cursor:
+        pointer;
+
+    transition:
+        background
+        0.2s
+        ease;
+
+}
+
+
+.lico-chat-close:hover {
+
+    background:
+        #ECEFF1;
+
+}
+
+
+.lico-chat-close span {
+
+    position:
+        absolute;
+
+    top:
+        50%;
+
+    left:
+        50%;
+
+    width:
+        14px;
+
+    height:
+        1.5px;
+
+    background:
+        var(--text);
+
+    border-radius:
+        999px;
+
+}
+
+
+.lico-chat-close
+span:first-child {
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        rotate(
+            45deg
+        );
+
+}
+
+
+.lico-chat-close
+span:last-child {
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        )
+        rotate(
+            -45deg
+        );
+
+}
+
+
+
+/* ==========================================================
+   09. MESSAGES
+========================================================== */
+
+.lico-chat-messages {
+
+    flex:
+        1;
+
+    min-height:
+        0;
+
+    padding:
+        22px
+        18px;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        14px;
+
+    overflow-y:
+        auto;
+
+    overscroll-behavior:
+        contain;
+
+    background:
+        #F7F8F9;
+
+    scrollbar-width:
+        thin;
+
+    scrollbar-color:
+        #D5DADD
+        transparent;
+
+}
+
+
+
+/* ==========================================================
+   10. MESSAGE
+========================================================== */
+
+.lico-message {
+
+    max-width:
+        84%;
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        5px;
+
+    animation:
+        licoMessageEnter
+        0.26s
+        var(--ease);
+
+}
+
+
+.lico-message-assistant {
+
+    align-self:
+        flex-start;
+
+}
+
+
+.lico-message-user {
+
+    align-self:
+        flex-end;
+
+    align-items:
+        flex-end;
+
+}
+
+
+.lico-message-bubble {
+
+    padding:
+        12px
+        14px;
+
+    color:
+        #374048;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        6px
+        17px
+        17px
+        17px;
+
+    font-size:
+        0.84rem;
+
+    line-height:
+        1.58;
+
+}
+
+
+.lico-message-user
+.lico-message-bubble {
+
+    color:
+        #07131C;
+
+    background:
+        rgba(
+            61,
+            183,
+            255,
+            0.20
+        );
+
+    border-color:
+        rgba(
+            61,
+            183,
+            255,
+            0.20
+        );
+
+    border-radius:
+        17px
+        6px
+        17px
+        17px;
+
+}
+
+
+.lico-message-label {
+
+    padding:
+        0
+        4px;
+
+    color:
+        #939BA2;
+
+    font-size:
+        0.61rem;
+
+    font-weight:
+        600;
+
+}
+
+
+@keyframes licoMessageEnter {
+
+    from {
+
+        opacity:
+            0;
+
+        transform:
+            translateY(
+                7px
+            );
+
+    }
+
+    to {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(
+                0
+            );
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   11. TYPING
+========================================================== */
+
+.lico-typing {
+
+    width:
+        fit-content;
+
+    padding:
+        12px
+        14px;
+
+    display:
+        flex;
+
+    gap:
+        4px;
+
+    background:
+        var(--white);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        6px
+        17px
+        17px
+        17px;
+
+}
+
+
+.lico-typing span {
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    background:
+        #9DA5AC;
+
+    border-radius:
+        50%;
+
+    animation:
+        licoTyping
+        1.2s
+        infinite
+        ease-in-out;
+
+}
+
+
+.lico-typing
+span:nth-child(2) {
+
+    animation-delay:
+        0.15s;
+
+}
+
+
+.lico-typing
+span:nth-child(3) {
+
+    animation-delay:
+        0.3s;
+
+}
+
+
+@keyframes licoTyping {
+
+    0%,
+    60%,
+    100% {
+
+        opacity:
+            0.35;
+
+        transform:
+            translateY(
+                0
+            );
+
+    }
+
+    30% {
+
+        opacity:
+            1;
+
+        transform:
+            translateY(
+                -3px
+            );
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   12. QUICK REPLIES
+========================================================== */
+
+.lico-quick-replies {
+
+    padding:
+        10px
+        17px
+        8px;
+
+    display:
+        flex;
+
+    gap:
+        7px;
+
+    overflow-x:
+        auto;
+
+    flex:
+        0 0
+        auto;
+
+    background:
+        var(--white);
+
+    scrollbar-width:
+        none;
+
+}
+
+
+.lico-quick-replies::-webkit-scrollbar {
+
+    display:
+        none;
+
+}
+
+
+.lico-quick-replies button {
+
+    flex:
+        0 0
+        auto;
+
+    min-height:
+        35px;
+
+    padding:
+        0
+        13px;
+
+    color:
+        #465058;
+
+    background:
+        #F5F7F8;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        999px;
+
+    font-size:
+        0.71rem;
+
+    font-weight:
+        620;
+
+    cursor:
+        pointer;
+
+    transition:
+        background
+        0.2s
+        ease,
+        border-color
+        0.2s
+        ease,
+        transform
+        0.2s
+        ease;
+
+}
+
+
+.lico-quick-replies button:hover {
+
+    transform:
+        translateY(
+            -2px
+        );
+
+    background:
+        rgba(
+            61,
+            183,
+            255,
+            0.08
+        );
+
+    border-color:
+        rgba(
+            61,
+            183,
+            255,
+            0.30
+        );
+
+}
+
+
+
+/* ==========================================================
+   13. WHATSAPP
+========================================================== */
+
+.lico-whatsapp {
+
+    margin:
+        4px
+        16px
+        10px;
+
+    padding:
+        13px;
+
+    flex:
+        0 0
+        auto;
+
+    background:
+        rgba(
+            126,
+            217,
+            87,
+            0.10
+        );
+
+    border:
+        1px solid
+        rgba(
+            126,
+            217,
+            87,
+            0.26
+        );
+
+    border-radius:
+        15px;
+
+}
+
+
+.lico-whatsapp[hidden] {
+
+    display:
+        none;
+
+}
+
+
+.lico-whatsapp-copy {
+
+    display:
+        flex;
+
+    flex-direction:
+        column;
+
+    gap:
+        4px;
+
+}
+
+
+.lico-whatsapp-copy strong {
+
+    color:
+        var(--text);
+
+    font-size:
+        0.77rem;
+
+}
+
+
+.lico-whatsapp-copy span {
+
+    color:
+        var(--text-soft);
+
+    font-size:
+        0.68rem;
+
+    line-height:
+        1.45;
+
+}
+
+
+.lico-whatsapp a {
+
+    margin-top:
+        11px;
+
+    display:
+        inline-flex;
+
+    align-items:
+        center;
+
+    gap:
+        7px;
+
+    color:
+        #356F21;
+
+    text-decoration:
+        none;
+
+    font-size:
+        0.73rem;
+
+    font-weight:
+        750;
+
+}
+
+
+
+/* ==========================================================
+   14. FORM
+========================================================== */
+
+.lico-chat-form {
+
+    min-height:
+        68px;
+
+    padding:
+        10px
+        12px;
+
+    display:
+        flex;
+
+    align-items:
+        flex-end;
+
+    gap:
+        8px;
+
+    flex:
+        0 0
+        auto;
+
+    background:
+        var(--white);
+
+    border-top:
+        1px solid
+        var(--border);
+
+}
+
+
+.lico-chat-form textarea {
+
+    width:
+        100%;
+
+    min-height:
+        45px;
+
+    max-height:
+        110px;
+
+    padding:
+        12px
+        14px;
+
+    resize:
+        none;
+
+    overflow-y:
+        auto;
+
+    color:
+        var(--text);
+
+    background:
+        #F5F6F7;
+
+    border:
+        1px solid
+        transparent;
+
+    border-radius:
+        16px;
+
+    outline:
+        none;
+
+    font-size:
+        0.82rem;
+
+    line-height:
+        1.45;
+
+    transition:
+        background
+        0.2s
+        ease,
+        border-color
+        0.2s
+        ease;
+
+}
+
+
+.lico-chat-form textarea:focus {
+
+    background:
+        var(--white);
+
+    border-color:
+        rgba(
+            61,
+            183,
+            255,
+            0.50
+        );
+
+}
+
+
+.lico-chat-form textarea::placeholder {
+
+    color:
+        #9AA2A9;
+
+}
+
+
+.lico-chat-form button {
+
+    width:
+        45px;
+
+    height:
+        45px;
+
+    flex:
+        0 0
+        45px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    color:
+        #07131C;
+
+    background:
+        var(--blue);
+
+    border:
+        none;
+
+    border-radius:
+        15px;
+
+    font-size:
+        1.05rem;
+
+    font-weight:
+        800;
+
+    cursor:
+        pointer;
+
+    transition:
+        transform
+        0.2s
+        var(--ease),
+        opacity
+        0.2s
+        ease;
+
+}
+
+
+.lico-chat-form button:hover {
+
+    transform:
+        translateY(
+            -2px
+        );
+
+}
+
+
+
+/* ==========================================================
+   15. FOOTER
+========================================================== */
+
+.lico-chat-footer {
+
+    min-height:
+        30px;
+
+    padding:
+        0
+        17px;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    gap:
+        6px;
+
+    flex:
+        0 0
+        auto;
+
+    color:
+        #9AA2A9;
+
+    background:
+        var(--white);
+
+    font-size:
+        0.6rem;
+
+}
+
+
+.lico-chat-footer-dot {
+
+    width:
+        5px;
+
+    height:
+        5px;
+
+    background:
+        var(--green);
+
+    border-radius:
+        50%;
+
+}
+
+
+
+/* ==========================================================
+   16. VISUALLY HIDDEN
+========================================================== */
+
+.lico-visually-hidden {
+
+    position:
+        absolute;
+
+    width:
+        1px;
+
+    height:
+        1px;
+
+    padding:
+        0;
+
+    margin:
+        -1px;
+
+    overflow:
+        hidden;
+
+    clip:
+        rect(
+            0,
+            0,
+            0,
+            0
+        );
+
+    white-space:
+        nowrap;
+
+    border:
+        0;
+
+}
+
+
+
+/* ==========================================================
+   17. MOBILE
+========================================================== */
+
+@media (
+    max-width:
+    600px
+) {
+
+    .lico-chat {
+
+        right:
+            14px;
+
+        bottom:
+            14px;
+
+    }
+
+
+    .lico-chat-launcher {
+
+        min-width:
+            0;
+
+        min-height:
+            59px;
+
+        padding:
+            6px;
+
+        border-radius:
+            50%;
+
+    }
+
+
+    .lico-launcher-avatar {
+
+        width:
+            47px;
+
+        height:
+            47px;
+
+        flex-basis:
+            47px;
+
+    }
+
+
+    .lico-launcher-copy,
+    .lico-launcher-arrow {
+
+        display:
+            none;
+
+    }
+
+
+    .lico-chat-panel {
+
+        position:
+            fixed;
+
+        right:
+            12px;
+
+        left:
+            12px;
+
+        bottom:
+            82px;
+
+        width:
+            auto;
+
+        height:
+            min(
+                650px,
+                calc(
+                    100dvh -
+                    100px
+                )
+            );
+
+        border-radius:
+            24px;
+
+        transform-origin:
+            bottom center;
+
+    }
+
+
+    .lico-chat-messages {
+
+        padding:
+            18px
+            14px;
+
+    }
+
+
+    .lico-message {
+
+        max-width:
+            90%;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   18. VERY SMALL
+========================================================== */
+
+@media (
+    max-width:
+    380px
+) {
+
+    .lico-chat-panel {
+
+        right:
+            7px;
+
+        left:
+            7px;
+
+        bottom:
+            76px;
+
+    }
+
+
+    .lico-chat-header {
+
+        padding:
+            0
+            14px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   19. REDUCED MOTION
+========================================================== */
+
+@media (
+    prefers-reduced-motion:
+    reduce
+) {
+
+    .lico-chat-panel,
+    .lico-chat-launcher,
+    .lico-message,
+    .lico-typing span {
+
+        animation:
+            none;
+
+        transition:
+            none;
+
+    }
+
+}

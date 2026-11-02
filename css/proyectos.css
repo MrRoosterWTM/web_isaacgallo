@@ -1,0 +1,2065 @@
+/* ==========================================================
+   ISAAC GALLO — PROYECTOS
+========================================================== */
+
+
+/* ==========================================================
+   PAGE
+========================================================== */
+
+.projects-page {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: var(--white);
+
+}
+
+
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.projects-hero {
+
+    position: relative;
+
+    min-height: 92vh;
+
+    padding: 180px 0 110px;
+
+    display: flex;
+
+    align-items: center;
+
+    background:
+
+        radial-gradient(
+            circle at 80% 15%,
+            rgba(61, 183, 255, 0.09),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 90% 75%,
+            rgba(126, 217, 87, 0.07),
+            transparent 27%
+        ),
+
+        var(--white);
+
+}
+
+
+.projects-hero-container {
+
+    width:
+        min(
+            var(--container),
+            88%
+        );
+
+    margin: 0 auto;
+
+}
+
+
+.projects-hero h1 {
+
+    max-width: 1000px;
+
+    margin-top: 14px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            5rem,
+            10vw,
+            9rem
+        );
+
+    font-weight: 730;
+
+    line-height: 0.88;
+
+    letter-spacing: -7px;
+
+}
+
+
+.projects-hero-bottom {
+
+    max-width: 900px;
+
+    margin-top: 55px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 60px;
+
+}
+
+
+.projects-hero-bottom p {
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+}
+
+
+.projects-hero-lead {
+
+    color: var(--text) !important;
+
+    font-size: 1.35rem !important;
+
+    font-weight: 620;
+
+    line-height: 1.5 !important;
+
+    letter-spacing: -0.5px;
+
+}
+
+
+.projects-scroll-link {
+
+    width: fit-content;
+
+    margin-top: 50px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 650;
+
+}
+
+
+.projects-scroll-link svg {
+
+    width: 17px;
+
+    height: 17px;
+
+    color: var(--blue);
+
+}
+
+
+
+/* ==========================================================
+   INTRO
+========================================================== */
+
+.projects-intro {
+
+    padding: 95px 0;
+
+    background: #F5F6F7;
+
+}
+
+
+.projects-intro-container {
+
+    width:
+        min(
+            850px,
+            88%
+        );
+
+    margin: 0 auto;
+
+}
+
+
+.projects-intro-number {
+
+    display: block;
+
+    margin-bottom: 30px;
+
+    color: var(--blue);
+
+    font-size: 0.75rem;
+
+    font-weight: 750;
+
+    letter-spacing: 2px;
+
+}
+
+
+.projects-intro p {
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            1.8rem,
+            3.5vw,
+            3rem
+        );
+
+    font-weight: 560;
+
+    line-height: 1.3;
+
+    letter-spacing: -1.8px;
+
+}
+
+
+
+/* ==========================================================
+   PROJECT
+========================================================== */
+
+.portfolio-project {
+
+    padding: 140px 0;
+
+    background: var(--white);
+
+}
+
+
+.portfolio-project-alt {
+
+    background: #F8F9FA;
+
+}
+
+
+.portfolio-project-container {
+
+    width:
+        min(
+            var(--container),
+            88%
+        );
+
+    margin: 0 auto;
+
+}
+
+
+
+/* ==========================================================
+   PROJECT HEADER
+========================================================== */
+
+.portfolio-project-header {
+
+    margin-bottom: 55px;
+
+    display: flex;
+
+    align-items: flex-end;
+
+    justify-content: space-between;
+
+    gap: 40px;
+
+}
+
+
+.project-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.project-meta span {
+
+    color: var(--text-soft);
+
+    font-size: 0.73rem;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+    text-transform: uppercase;
+
+}
+
+
+.project-meta span:first-child {
+
+    color: var(--blue);
+
+}
+
+
+.portfolio-project-header h2 {
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            3.5rem,
+            7vw,
+            7rem
+        );
+
+    font-weight: 720;
+
+    line-height: 0.92;
+
+    letter-spacing: -5px;
+
+}
+
+
+.project-external-link {
+
+    flex: 0 0 auto;
+
+    margin-bottom: 10px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+}
+
+
+.project-external-link svg {
+
+    width: 18px;
+
+    height: 18px;
+
+    color: var(--blue);
+
+    transition:
+        transform
+        0.25s
+        var(--ease);
+
+}
+
+
+.project-external-link:hover svg {
+
+    transform:
+        translate(
+            3px,
+            -3px
+        );
+
+}
+
+
+
+/* ==========================================================
+   MEDIA
+========================================================== */
+
+.project-main-media {
+
+    width: 100%;
+
+    aspect-ratio: 16 / 8;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 32px;
+
+    background: #F1F3F4;
+
+}
+
+
+.project-main-media img,
+.project-gallery-item img {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+}
+
+
+.project-media-placeholder {
+
+    width: 100%;
+
+    height: 100%;
+
+    min-height: inherit;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 14px;
+
+    color: #9AA2AA;
+
+    background:
+
+        linear-gradient(
+            135deg,
+            #F6F7F8,
+            #ECEFF1
+        );
+
+}
+
+
+.project-media-placeholder svg {
+
+    width: 30px;
+
+    height: 30px;
+
+    stroke-width: 1.4;
+
+}
+
+
+.project-media-placeholder div {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.project-media-placeholder strong {
+
+    color: #616A72;
+
+    font-size: 0.9rem;
+
+}
+
+
+.project-media-placeholder span {
+
+    color: #9AA2AA;
+
+    font-size: 0.75rem;
+
+}
+
+
+
+/* ==========================================================
+   PROJECT CONTENT
+========================================================== */
+
+.project-content-grid {
+
+    margin-top: 70px;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1.2fr)
+        minmax(300px, 0.8fr);
+
+    gap:
+        clamp(
+            70px,
+            10vw,
+            150px
+        );
+
+}
+
+
+.project-eyebrow {
+
+    margin-bottom: 20px !important;
+
+    color: var(--blue) !important;
+
+    font-size: 0.72rem !important;
+
+    font-weight: 750 !important;
+
+    letter-spacing: 2px;
+
+}
+
+
+.project-story h3 {
+
+    max-width: 650px;
+
+    margin-bottom: 32px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            2.3rem,
+            4vw,
+            4rem
+        );
+
+    font-weight: 650;
+
+    line-height: 1.04;
+
+    letter-spacing: -2.5px;
+
+}
+
+
+.project-story p {
+
+    max-width: 650px;
+
+    margin-bottom: 18px;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* ==========================================================
+   WORK
+========================================================== */
+
+.project-work {
+
+    padding-top: 10px;
+
+}
+
+
+.project-work-title {
+
+    display: block;
+
+    margin-bottom: 25px;
+
+    color: var(--text);
+
+    font-size: 0.72rem;
+
+    font-weight: 750;
+
+    letter-spacing: 2px;
+
+}
+
+
+.project-work ul {
+
+    margin: 0;
+
+    padding: 0;
+
+    list-style: none;
+
+}
+
+
+.project-work li {
+
+    padding: 12px 0;
+
+    color: #4E565D;
+
+    font-size: 0.9rem;
+
+    border-bottom:
+        1px solid
+        var(--border);
+
+}
+
+
+
+/* ==========================================================
+   TECHNOLOGIES
+========================================================== */
+
+.project-technologies {
+
+    margin-top: 65px;
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+}
+
+
+.project-technologies span {
+
+    padding: 9px 14px;
+
+    color: #424A51;
+
+    background: var(--white);
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 999px;
+
+    font-size: 0.76rem;
+
+    font-weight: 620;
+
+}
+
+
+.portfolio-project:not(.portfolio-project-alt)
+.project-technologies span {
+
+    background: #F7F8F9;
+
+}
+
+
+
+/* ==========================================================
+   PROJECT QUOTE
+========================================================== */
+
+.project-quote {
+
+    max-width: 900px;
+
+    margin:
+        100px auto;
+
+    padding:
+        0;
+
+    border: none;
+
+    text-align: center;
+
+}
+
+
+.project-quote svg {
+
+    width: 30px;
+
+    height: 30px;
+
+    margin-bottom: 30px;
+
+    color: var(--blue);
+
+    stroke-width: 1.5;
+
+}
+
+
+.project-quote p {
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            2rem,
+            4vw,
+            3.8rem
+        );
+
+    font-weight: 580;
+
+    line-height: 1.15;
+
+    letter-spacing: -2px;
+
+}
+
+
+
+/* ==========================================================
+   GALLERY
+========================================================== */
+
+.project-gallery {
+
+    display: grid;
+
+    grid-template-columns:
+        1fr
+        1fr;
+
+    gap: 24px;
+
+}
+
+
+.project-gallery-item {
+
+    aspect-ratio: 4 / 3;
+
+    overflow: hidden;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius: 25px;
+
+}
+
+
+
+/* ==========================================================
+   PROJECT SEPARATOR
+========================================================== */
+
+.project-separator {
+
+    height: 80px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: var(--footer-blue);
+
+}
+
+
+.project-separator span {
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    font-size: 0.68rem;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+/* ==========================================================
+   PERSONAL QUOTE
+========================================================== */
+
+.projects-personal-quote {
+
+    padding: 150px 0;
+
+    background:
+        var(--footer-blue);
+
+}
+
+
+.projects-personal-quote-container {
+
+    width:
+        min(
+            1000px,
+            88%
+        );
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.projects-personal-quote-container > span {
+
+    display: block;
+
+    margin-bottom: 35px;
+
+    color: var(--green);
+
+    font-size: 0.72rem;
+
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+
+}
+
+
+.projects-personal-quote blockquote {
+
+    color: var(--white);
+
+    font-size:
+        clamp(
+            3rem,
+            6vw,
+            6rem
+        );
+
+    font-weight: 620;
+
+    line-height: 1;
+
+    letter-spacing: -4px;
+
+}
+
+
+.projects-personal-quote p {
+
+    margin-top: 35px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    font-size: 0.95rem;
+
+}
+
+
+
+/* ==========================================================
+   STATUS
+========================================================== */
+
+.project-status {
+
+    margin-bottom: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: var(--text-soft);
+
+    font-size: 0.8rem;
+
+    font-weight: 600;
+
+}
+
+
+.project-status span {
+
+    width: 8px;
+
+    height: 8px;
+
+    background: var(--green);
+
+    border-radius: 50%;
+
+    box-shadow:
+        0
+        0
+        0
+        5px
+        rgba(
+            126,
+            217,
+            87,
+            0.13
+        );
+
+}
+
+
+
+/* ==========================================================
+   MINI GAME
+========================================================== */
+
+.projects-game {
+
+    padding: 140px 0;
+
+    background: #071D29;
+
+}
+
+
+.projects-game-container {
+
+    width:
+        min(
+            var(--container),
+            88%
+        );
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 0.8fr)
+        minmax(450px, 1.2fr);
+
+    gap:
+        clamp(
+            70px,
+            10vw,
+            140px
+        );
+
+    align-items: center;
+
+}
+
+
+.projects-game-copy h2 {
+
+    max-width: 500px;
+
+    margin-top: 18px;
+
+    color: var(--white);
+
+    font-size:
+        clamp(
+            3rem,
+            5vw,
+            5rem
+        );
+
+    line-height: 0.96;
+
+    letter-spacing: -4px;
+
+}
+
+
+.projects-game-copy > p:not(.section-label) {
+
+    max-width: 500px;
+
+    margin-top: 28px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.58
+        );
+
+    line-height: 1.75;
+
+}
+
+
+.game-future-note {
+
+    font-size: 0.8rem;
+
+}
+
+
+
+/* ==========================================================
+   GAME BOX
+========================================================== */
+
+.bug-game {
+
+    overflow: hidden;
+
+    background: #0B2634;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.10
+        );
+
+    border-radius: 28px;
+
+    box-shadow:
+        0
+        30px
+        80px
+        rgba(
+            0,
+            0,
+            0,
+            0.25
+        );
+
+}
+
+
+.bug-game-header {
+
+    min-height: 75px;
+
+    padding: 0 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    border-bottom:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+}
+
+
+.bug-game-header > div {
+
+    display: flex;
+
+    align-items: baseline;
+
+    gap: 10px;
+
+}
+
+
+.bug-game-header span {
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.38
+        );
+
+    font-size: 0.65rem;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.bug-game-header strong {
+
+    color: var(--white);
+
+    font-size: 1.1rem;
+
+}
+
+
+
+/* ==========================================================
+   GAME AREA
+========================================================== */
+
+.bug-game-area {
+
+    position: relative;
+
+    height: 390px;
+
+    overflow: hidden;
+
+    cursor: crosshair;
+
+    background:
+
+        linear-gradient(
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(255,255,255,0.025) 1px,
+            transparent 1px
+        ),
+
+        #081E2A;
+
+    background-size:
+        35px
+        35px;
+
+}
+
+
+.bug-game-start {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    padding: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+}
+
+
+.bug-game-start > svg {
+
+    width: 45px;
+
+    height: 45px;
+
+    margin-bottom: 18px;
+
+    color: var(--red);
+
+    stroke-width: 1.4;
+
+}
+
+
+.bug-game-start strong {
+
+    color: var(--white);
+
+    font-size: 0.85rem;
+
+    letter-spacing: 2px;
+
+}
+
+
+.bug-game-start p {
+
+    max-width: 320px;
+
+    margin-top: 12px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.50
+        );
+
+    font-size: 0.85rem;
+
+    line-height: 1.6;
+
+}
+
+
+.bug-game-start button {
+
+    margin-top: 28px;
+
+    min-height: 48px;
+
+    padding: 0 20px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    color: #071D29;
+
+    background: var(--green);
+
+    border: none;
+
+    border-radius: 999px;
+
+    font-size: 0.82rem;
+
+    font-weight: 750;
+
+    cursor: pointer;
+
+    transition:
+        transform
+        0.25s
+        var(--ease);
+
+}
+
+
+.bug-game-start button:hover {
+
+    transform:
+        translateY(-3px);
+
+}
+
+
+.bug-game-start button svg {
+
+    width: 15px;
+
+    height: 15px;
+
+}
+
+
+
+/* ==========================================================
+   TERMINAL
+========================================================== */
+
+.bug-game-terminal {
+
+    position: absolute;
+
+    top: 20px;
+
+    left: 22px;
+
+    display: flex;
+
+    gap: 6px;
+
+}
+
+
+.terminal-dot {
+
+    width: 7px;
+
+    height: 7px;
+
+    display: block;
+
+    background:
+        rgba(
+            255,
+            255,
+            255,
+            0.18
+        );
+
+    border-radius: 50%;
+
+}
+
+
+.terminal-dot:first-child {
+
+    background: var(--red);
+
+}
+
+
+.terminal-dot:nth-child(2) {
+
+    background: #F8CF5A;
+
+}
+
+
+.terminal-dot:nth-child(3) {
+
+    background: var(--green);
+
+}
+
+
+
+/* ==========================================================
+   BUG
+========================================================== */
+
+.game-bug {
+
+    position: absolute;
+
+    width: 48px;
+
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    color: var(--red);
+
+    background:
+        rgba(
+            255,
+            91,
+            91,
+            0.12
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            91,
+            91,
+            0.30
+        );
+
+    border-radius: 50%;
+
+    cursor: pointer;
+
+    animation:
+        bugAppear
+        0.25s
+        var(--ease);
+
+}
+
+
+.game-bug svg {
+
+    width: 23px;
+
+    height: 23px;
+
+    pointer-events: none;
+
+}
+
+
+.game-bug:hover {
+
+    background:
+        rgba(
+            255,
+            91,
+            91,
+            0.23
+        );
+
+}
+
+
+@keyframes bugAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            scale(0.5);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            scale(1);
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   RESULT
+========================================================== */
+
+.bug-game-result {
+
+    min-height: 58px;
+
+    padding: 0 28px;
+
+    display: flex;
+
+    align-items: center;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            0.55
+        );
+
+    border-top:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    font-size: 0.8rem;
+
+}
+
+
+
+/* ==========================================================
+   CTA
+========================================================== */
+
+.projects-cta {
+
+    padding: 150px 0;
+
+    background: var(--white);
+
+}
+
+
+.projects-cta-container {
+
+    width:
+        min(
+            900px,
+            88%
+        );
+
+    margin: 0 auto;
+
+    text-align: center;
+
+}
+
+
+.projects-cta h2 {
+
+    margin-top: 15px;
+
+    color: var(--text);
+
+    font-size:
+        clamp(
+            4rem,
+            8vw,
+            7rem
+        );
+
+    line-height: 0.95;
+
+    letter-spacing: -5px;
+
+}
+
+
+.projects-cta p:not(.section-label) {
+
+    max-width: 530px;
+
+    margin:
+        30px auto
+        0;
+
+    color: var(--text-soft);
+
+    font-size: 1rem;
+
+    line-height: 1.75;
+
+}
+
+
+.projects-cta-button {
+
+    min-height: 56px;
+
+    margin-top: 38px;
+
+    padding: 0 25px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    color: #07131C;
+
+    background: var(--blue);
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 0.9rem;
+
+    font-weight: 700;
+
+    transition:
+        transform
+        0.25s
+        var(--ease),
+        box-shadow
+        0.25s
+        ease;
+
+}
+
+
+.projects-cta-button:hover {
+
+    transform:
+        translateY(-4px);
+
+    box-shadow:
+        0
+        15px
+        35px
+        rgba(
+            61,
+            183,
+            255,
+            0.25
+        );
+
+}
+
+
+.projects-cta-button svg {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+
+
+/* ==========================================================
+   ACTIVE NAV
+========================================================== */
+
+.nav-links
+a[aria-current="page"] {
+
+    color: var(--text);
+
+}
+
+
+.nav-links
+a[aria-current="page"]::after {
+
+    width: 100%;
+
+}
+
+
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (
+    max-width: 950px
+) {
+
+    .projects-hero-bottom {
+
+        max-width: 700px;
+
+        grid-template-columns:
+            1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .project-content-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 60px;
+
+    }
+
+
+    .project-work {
+
+        max-width: 650px;
+
+    }
+
+
+    .projects-game-container {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .projects-game-copy {
+
+        max-width: 650px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (
+    max-width: 700px
+) {
+
+    .projects-hero {
+
+        min-height: auto;
+
+        padding:
+            145px
+            0
+            90px;
+
+    }
+
+
+    .projects-hero-container {
+
+        width: 90%;
+
+    }
+
+
+    .projects-hero h1 {
+
+        font-size:
+            clamp(
+                4rem,
+                19vw,
+                6rem
+            );
+
+        letter-spacing: -4px;
+
+    }
+
+
+    .projects-hero-bottom {
+
+        margin-top: 40px;
+
+    }
+
+
+    .projects-hero-lead {
+
+        font-size: 1.15rem !important;
+
+    }
+
+
+
+    .projects-intro {
+
+        padding: 75px 0;
+
+    }
+
+
+    .projects-intro-container {
+
+        width: 90%;
+
+    }
+
+
+    .projects-intro p {
+
+        font-size:
+            clamp(
+                1.6rem,
+                7vw,
+                2.3rem
+            );
+
+        letter-spacing: -1px;
+
+    }
+
+
+
+    .portfolio-project {
+
+        padding: 90px 0;
+
+    }
+
+
+    .portfolio-project-container {
+
+        width: 90%;
+
+    }
+
+
+    .portfolio-project-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        margin-bottom: 40px;
+
+    }
+
+
+    .portfolio-project-header h2 {
+
+        font-size:
+            clamp(
+                3.2rem,
+                15vw,
+                4.8rem
+            );
+
+        letter-spacing: -3px;
+
+    }
+
+
+    .project-external-link,
+    .project-status {
+
+        margin-bottom: 0;
+
+    }
+
+
+    .project-main-media {
+
+        aspect-ratio: 4 / 3;
+
+        border-radius: 22px;
+
+    }
+
+
+    .project-content-grid {
+
+        margin-top: 50px;
+
+        gap: 45px;
+
+    }
+
+
+    .project-story h3 {
+
+        font-size:
+            clamp(
+                2rem,
+                9vw,
+                2.8rem
+            );
+
+        letter-spacing: -1.5px;
+
+    }
+
+
+    .project-quote {
+
+        margin:
+            75px
+            auto;
+
+    }
+
+
+    .project-quote p {
+
+        font-size:
+            clamp(
+                1.8rem,
+                8vw,
+                2.6rem
+            );
+
+        letter-spacing: -1.5px;
+
+    }
+
+
+    .project-gallery {
+
+        grid-template-columns:
+            1fr;
+
+    }
+
+
+    .projects-personal-quote {
+
+        padding: 100px 0;
+
+    }
+
+
+    .projects-personal-quote blockquote {
+
+        font-size:
+            clamp(
+                2.7rem,
+                12vw,
+                4rem
+            );
+
+        letter-spacing: -2.5px;
+
+    }
+
+
+
+    .projects-game {
+
+        padding: 95px 0;
+
+    }
+
+
+    .projects-game-container {
+
+        width: 90%;
+
+    }
+
+
+    .projects-game-copy h2 {
+
+        font-size:
+            clamp(
+                2.8rem,
+                12vw,
+                4rem
+            );
+
+        letter-spacing: -2.5px;
+
+    }
+
+
+    .bug-game-area {
+
+        height: 340px;
+
+    }
+
+
+    .bug-game-start {
+
+        padding: 30px;
+
+    }
+
+
+
+    .projects-cta {
+
+        padding: 100px 0;
+
+    }
+
+
+    .projects-cta h2 {
+
+        font-size:
+            clamp(
+                3.5rem,
+                15vw,
+                5rem
+            );
+
+        letter-spacing: -3px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (
+    max-width: 480px
+) {
+
+    .project-meta {
+
+        gap:
+            8px
+            14px;
+
+    }
+
+
+    .project-technologies {
+
+        margin-top: 45px;
+
+    }
+
+
+    .bug-game-header {
+
+        padding:
+            0
+            20px;
+
+    }
+
+
+    .bug-game-area {
+
+        height: 315px;
+
+    }
+
+
+    .bug-game-result {
+
+        padding:
+            0
+            20px;
+
+    }
+
+
+    .game-bug {
+
+        width: 44px;
+
+        height: 44px;
+
+    }
+
+}
+
+
+
+/* ==========================================================
+   REDUCED MOTION
+========================================================== */
+
+@media (
+    prefers-reduced-motion: reduce
+) {
+
+    .game-bug {
+
+        animation: none;
+
+    }
+
+
+    .project-external-link svg {
+
+        transition: none;
+
+    }
+
+}

@@ -7,40 +7,35 @@
    01. CONFIGURACIÓN
 ========================================================== */
 
-const prefersReducedMotion =
-    window
-        .matchMedia(
-            "(prefers-reduced-motion: reduce)"
-        )
-        .matches;
+const servicesReducedMotion =
+    window.matchMedia(
+        "(prefers-reduced-motion: reduce)"
+    ).matches;
 
 
-const isTouchDevice =
-    window
-        .matchMedia(
-            "(hover: none), (pointer: coarse)"
-        )
-        .matches;
+const servicesTouchDevice =
+    window.matchMedia(
+        "(hover: none), (pointer: coarse)"
+    ).matches;
 
 
 
 /* ==========================================================
-   02. SERVICE MEDIA — MOVIMIENTO SUAVE
+   02. IMÁGENES DE SERVICIOS
+   Movimiento muy ligero en escritorio
 ========================================================== */
 
 const serviceMediaElements =
-    document
-        .querySelectorAll(
-            ".service-feature-media"
-        );
+    document.querySelectorAll(
+        ".service-feature-media"
+    );
 
 
 function initialiseServiceMediaMotion() {
 
     if (
-        prefersReducedMotion
-        ||
-        isTouchDevice
+        servicesReducedMotion ||
+        servicesTouchDevice
     ) {
 
         return;
@@ -48,131 +43,114 @@ function initialiseServiceMediaMotion() {
     }
 
 
-    serviceMediaElements
-        .forEach(
-            media => {
+    serviceMediaElements.forEach(
+        media => {
+
+            const image =
+                media.querySelector(
+                    "img"
+                );
 
 
-                const image =
-                    media
-                        .querySelector(
-                            "img"
-                        );
+            if (!image) {
 
-
-                if (
-                    !image
-                ) {
-
-                    return;
-
-                }
-
-
-                media
-                    .addEventListener(
-                        "pointermove",
-                        event => {
-
-
-                            const rect =
-                                media
-                                    .getBoundingClientRect();
-
-
-                            const mouseX =
-                                event.clientX
-                                -
-                                rect.left;
-
-
-                            const mouseY =
-                                event.clientY
-                                -
-                                rect.top;
-
-
-                            const percentX =
-                                mouseX
-                                /
-                                rect.width;
-
-
-                            const percentY =
-                                mouseY
-                                /
-                                rect.height;
-
-
-                            const rotateY =
-                                (
-                                    percentX
-                                    -
-                                    0.5
-                                )
-                                *
-                                3;
-
-
-                            const rotateX =
-                                (
-                                    0.5
-                                    -
-                                    percentY
-                                )
-                                *
-                                3;
-
-
-                            image
-                                .style
-                                .transform =
-                                    `
-                                    scale(1.025)
-                                    rotateX(${rotateX}deg)
-                                    rotateY(${rotateY}deg)
-                                    `;
-
-                        }
-                    );
-
-
-                media
-                    .addEventListener(
-                        "pointerleave",
-                        () => {
-
-                            image
-                                .style
-                                .transform =
-                                    "";
-
-                        }
-                    );
-
+                return;
 
             }
-        );
+
+
+            media.addEventListener(
+                "pointermove",
+                event => {
+
+                    const rect =
+                        media.getBoundingClientRect();
+
+
+                    const x =
+                        (
+                            event.clientX -
+                            rect.left
+                        )
+                        /
+                        rect.width;
+
+
+                    const y =
+                        (
+                            event.clientY -
+                            rect.top
+                        )
+                        /
+                        rect.height;
+
+
+                    const rotateY =
+                        (
+                            x -
+                            0.5
+                        )
+                        *
+                        2.4;
+
+
+                    const rotateX =
+                        (
+                            0.5 -
+                            y
+                        )
+                        *
+                        2.4;
+
+
+                    image.style.transform =
+                        `
+                        scale(1.025)
+                        rotateX(${rotateX}deg)
+                        rotateY(${rotateY}deg)
+                        `;
+
+                }
+            );
+
+
+            media.addEventListener(
+                "pointerleave",
+                () => {
+
+                    image.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
 
 /* ==========================================================
-   03. CARRUSEL DE TECNOLOGÍAS
+   03. CARRUSEL INFINITO
 ========================================================== */
 
 const technologyMarquee =
-    document
-        .querySelector(
-            ".technology-marquee"
-        );
+    document.querySelector(
+        ".technology-marquee"
+    );
 
 
-function pauseTechnologyMarquee() {
+const technologyTrack =
+    document.querySelector(
+        ".technology-track"
+    );
+
+
+function createInfiniteTechnologyTrack() {
 
     if (
-        !technologyMarquee
+        !technologyTrack
     ) {
 
         return;
@@ -180,8 +158,67 @@ function pauseTechnologyMarquee() {
     }
 
 
+    const groups =
+        technologyTrack.querySelectorAll(
+            ".technology-group"
+        );
+
+
+    /*
+       Si ya existen dos grupos,
+       no volvemos a duplicar.
+    */
+
+    if (
+        groups.length >= 2
+    ) {
+
+        return;
+
+    }
+
+
+    const originalGroup =
+        groups[0];
+
+
+    if (
+        !originalGroup
+    ) {
+
+        return;
+
+    }
+
+
+    const clone =
+        originalGroup.cloneNode(
+            true
+        );
+
+
+    clone.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
+
+    technologyTrack.appendChild(
+        clone
+    );
+
+}
+
+
+
+/* ==========================================================
+   04. PAUSAR CARRUSEL
+========================================================== */
+
+function pauseTechnologyMarquee() {
+
     technologyMarquee
-        .classList
+        ?.classList
         .add(
             "is-paused"
         );
@@ -191,32 +228,14 @@ function pauseTechnologyMarquee() {
 
 function resumeTechnologyMarquee() {
 
-    if (
-        !technologyMarquee
-    ) {
-
-        return;
-
-    }
-
-
     technologyMarquee
-        .classList
+        ?.classList
         .remove(
             "is-paused"
         );
 
 }
 
-
-
-/*
-   En escritorio paramos el carrusel
-   al pasar el ratón por encima.
-
-   Esto permite mirar tranquilamente
-   cada tecnología.
-*/
 
 technologyMarquee
     ?.addEventListener(
@@ -231,12 +250,6 @@ technologyMarquee
         resumeTechnologyMarquee
     );
 
-
-
-/*
-   También se pausa si algún elemento
-   interior recibe foco mediante teclado.
-*/
 
 technologyMarquee
     ?.addEventListener(
@@ -254,148 +267,15 @@ technologyMarquee
 
 
 /* ==========================================================
-   04. TECNOLOGÍAS — ENTRADA EN VIEWPORT
-========================================================== */
-
-function initialiseTechnologyReveal() {
-
-    const technologyItems =
-        document
-            .querySelectorAll(
-                ".technology-item"
-            );
-
-
-    if (
-        !technologyItems.length
-    ) {
-
-        return;
-
-    }
-
-
-    if (
-        prefersReducedMotion
-    ) {
-
-        technologyItems
-            .forEach(
-                item => {
-
-                    item
-                        .classList
-                        .add(
-                            "is-tech-visible"
-                        );
-
-                }
-            );
-
-
-        return;
-
-    }
-
-
-    const observer =
-        new IntersectionObserver(
-
-            entries => {
-
-                entries
-                    .forEach(
-                        entry => {
-
-                            if (
-                                !entry.isIntersecting
-                            ) {
-
-                                return;
-
-                            }
-
-
-                            const group =
-                                entry
-                                    .target
-                                    .querySelectorAll(
-                                        ".technology-item"
-                                    );
-
-
-                            group
-                                .forEach(
-                                    (
-                                        item,
-                                        index
-                                    ) => {
-
-                                        window
-                                            .setTimeout(
-                                                () => {
-
-                                                    item
-                                                        .classList
-                                                        .add(
-                                                            "is-tech-visible"
-                                                        );
-
-                                                },
-
-                                                index
-                                                *
-                                                45
-                                            );
-
-                                    }
-                                );
-
-
-                            observer
-                                .unobserve(
-                                    entry.target
-                                );
-
-                        }
-                    );
-
-            },
-
-            {
-                threshold:
-                    0.15
-            }
-
-        );
-
-
-    if (
-        technologyMarquee
-    ) {
-
-        observer
-            .observe(
-                technologyMarquee
-            );
-
-    }
-
-}
-
-
-
-/* ==========================================================
-   05. PROCESS — ITEM ACTIVO
+   05. PROCESO
 ========================================================== */
 
 function initialiseProcessHighlight() {
 
     const processItems =
-        document
-            .querySelectorAll(
-                ".services-process-item"
-            );
+        document.querySelectorAll(
+            ".services-process-item"
+        );
 
 
     if (
@@ -408,8 +288,19 @@ function initialiseProcessHighlight() {
 
 
     if (
-        prefersReducedMotion
+        servicesReducedMotion
     ) {
+
+        processItems.forEach(
+            item => {
+
+                item.classList.add(
+                    "is-process-active"
+                );
+
+            }
+        );
+
 
         return;
 
@@ -421,67 +312,63 @@ function initialiseProcessHighlight() {
 
             entries => {
 
-                entries
-                    .forEach(
-                        entry => {
+                entries.forEach(
+                    entry => {
 
-                            if (
-                                entry.isIntersecting
-                            ) {
+                        if (
+                            entry.isIntersecting
+                        ) {
 
-                                entry
-                                    .target
-                                    .classList
-                                    .add(
-                                        "is-process-active"
-                                    );
+                            entry.target.classList.add(
+                                "is-process-active"
+                            );
 
-                            }
+
+                            observer.unobserve(
+                                entry.target
+                            );
 
                         }
-                    );
+
+                    }
+                );
 
             },
 
             {
                 threshold:
-                    0.55
+                    0.35,
+
+                rootMargin:
+                    "0px 0px -5% 0px"
             }
 
         );
 
 
-    processItems
-        .forEach(
-            item => {
+    processItems.forEach(
+        item => {
 
-                observer
-                    .observe(
-                        item
-                    );
+            observer.observe(
+                item
+            );
 
-            }
-        );
+        }
+    );
 
 }
 
 
 
 /* ==========================================================
-   06. SERVICE LINKS — ICON MOTION
+   06. LINKS DE SERVICIO
 ========================================================== */
-
-const serviceLinks =
-    document
-        .querySelectorAll(
-            ".service-feature-link"
-        );
-
 
 function initialiseServiceLinks() {
 
     if (
-        prefersReducedMotion
+        servicesReducedMotion ||
+        servicesTouchDevice
     ) {
 
         return;
@@ -489,132 +376,188 @@ function initialiseServiceLinks() {
     }
 
 
-    serviceLinks
-        .forEach(
-            link => {
+    const links =
+        document.querySelectorAll(
+            ".service-feature-link"
+        );
 
 
-                const icon =
-                    link
-                        .querySelector(
-                            "svg"
-                        );
+    links.forEach(
+        link => {
+
+            const icon =
+                link.querySelector(
+                    "svg"
+                );
 
 
-                if (
-                    !icon
-                ) {
+            if (
+                !icon
+            ) {
 
-                    return;
-
-                }
-
-
-                link
-                    .addEventListener(
-                        "mouseenter",
-                        () => {
-
-                            icon
-                                .style
-                                .transform =
-                                    "translate(3px, -3px)";
-
-                        }
-                    );
-
-
-                link
-                    .addEventListener(
-                        "mouseleave",
-                        () => {
-
-                            icon
-                                .style
-                                .transform =
-                                    "";
-
-                        }
-                    );
-
+                return;
 
             }
-        );
+
+
+            link.addEventListener(
+                "mouseenter",
+                () => {
+
+                    icon.style.transform =
+                        "translate(3px, -3px)";
+
+                }
+            );
+
+
+            link.addEventListener(
+                "mouseleave",
+                () => {
+
+                    icon.style.transform =
+                        "";
+
+                }
+            );
+
+        }
+    );
 
 }
 
 
 
 /* ==========================================================
-   07. SCROLL A CONTACTO
+   07. SCROLL SUAVE A CONTACTO
 ========================================================== */
 
-const contactLinks =
-    document
-        .querySelectorAll(
+function initialiseContactScroll() {
+
+    const contactLinks =
+        document.querySelectorAll(
             'a[href="#contacto"]'
         );
 
 
-contactLinks
-    .forEach(
+    const contactSection =
+        document.getElementById(
+            "contacto"
+        );
+
+
+    if (
+        !contactSection
+    ) {
+
+        return;
+
+    }
+
+
+    contactLinks.forEach(
         link => {
 
-            link
-                .addEventListener(
-                    "click",
-                    event => {
+            link.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
 
 
-                        const contactSection =
-                            document
-                                .getElementById(
-                                    "contacto"
-                                );
+                    contactSection.scrollIntoView(
+                        {
+                            behavior:
+                                servicesReducedMotion
+                                    ? "auto"
+                                    : "smooth",
 
-
-                        if (
-                            !contactSection
-                        ) {
-
-                            return;
-
+                            block:
+                                "start"
                         }
+                    );
 
-
-                        event
-                            .preventDefault();
-
-
-                        contactSection
-                            .scrollIntoView(
-                                {
-                                    behavior:
-                                        prefersReducedMotion
-                                            ? "auto"
-                                            : "smooth",
-
-                                    block:
-                                        "start"
-                                }
-                            );
-
-                    }
-                );
+                }
+            );
 
         }
     );
 
+}
+
 
 
 /* ==========================================================
-   08. INITIALISE
+   08. SCROLL SUAVE A SERVICIOS
 ========================================================== */
 
-initialiseServiceMediaMotion();
+function initialiseServicesScroll() {
 
-initialiseTechnologyReveal();
+    const links =
+        document.querySelectorAll(
+            'a[href="#servicios-listado"]'
+        );
+
+
+    const section =
+        document.getElementById(
+            "servicios-listado"
+        );
+
+
+    if (
+        !section
+    ) {
+
+        return;
+
+    }
+
+
+    links.forEach(
+        link => {
+
+            link.addEventListener(
+                "click",
+                event => {
+
+                    event.preventDefault();
+
+
+                    section.scrollIntoView(
+                        {
+                            behavior:
+                                servicesReducedMotion
+                                    ? "auto"
+                                    : "smooth",
+
+                            block:
+                                "start"
+                        }
+                    );
+
+                }
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==========================================================
+   09. INITIALISE
+========================================================== */
+
+createInfiniteTechnologyTrack();
+
+initialiseServiceMediaMotion();
 
 initialiseProcessHighlight();
 
 initialiseServiceLinks();
+
+initialiseContactScroll();
+
+initialiseServicesScroll();
